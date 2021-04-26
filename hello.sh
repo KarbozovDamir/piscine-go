@@ -1,1 +1,3 @@
-Hello Damir!
+#!/bin/bush
+
+echo "Hello Damir!"
