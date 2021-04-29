@@ -7,5 +7,5 @@ func main() {
 	for i := 0; i <= 25; i++ {
 		z01.PrintRune(rune(letter[i]))
 	}
-		z01.PrintRune('\n')
+	    z01.PrintRune('\n')
 }
