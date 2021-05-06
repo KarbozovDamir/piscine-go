@@ -6,7 +6,7 @@ func IsLower(str string) bool {
 	}
 	s := []rune(str)
 	for _, letter := range s {
-		if letter > 'a' && letter < 'z' {
+		if letter >= 'a' && letter <= 'z' {
 			continue
 		} else {
 			return false
