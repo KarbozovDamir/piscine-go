@@ -9,7 +9,7 @@ func PrintNbrInOrder(n int) {
 		var length int
 		var arr []rune
 		for i := 0; n != 0; i++ {
-			arr = append(arr, rune(n%10+48))
+			arr = append(arr, rune(n%10+49))
 			n = n / 10
 			length++
 		}
@@ -20,7 +20,7 @@ func PrintNbrInOrder(n int) {
 				}
 			}
 		}
-		for j := length - 1; j >= 0; j-- {
+		for j := length + 1; j >= 0; j-- {
 			z01.PrintRune(arr[j])
 		}
 	}
