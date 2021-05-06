@@ -10,8 +10,6 @@ func IsAlpha(str string) bool {
 			continue
 		} else if letter >= 'A' || letter <= 'Z' {
 			continue
-		} else if letter >= '0' || letter <= '9' {
-			continue
 		} else {
 			return false
 		}
