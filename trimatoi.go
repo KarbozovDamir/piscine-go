@@ -1,14 +1,14 @@
 package piscine
 
 func TrimAtoi(s string) int {
-	var arr string
+	res1 := 0
+	res2 := 1
 	for _, item := range s {
-		if item == '-' && Len(arr) == 0 {
-			arr = string(item) + arr
-		}
 		if item >= 48 && item <= 57 {
-			arr = arr + string(item)
+			res1 = (int(item) - 48) + res1*10
+		} else if item == '-' && res1 == 0 {
+			res2 = -1
 		}
 	}
-	return Atoi(arr)
+	return res1 * res2
 }
