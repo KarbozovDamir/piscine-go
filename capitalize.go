@@ -19,7 +19,7 @@ func Capitalize(s string) string {
 			if (arr[i-1] >= 'A' && arr[i-1] <= 'Z') || (arr[i-1] >= 'a' && arr[i-1] <= 'z') || (arr[i-1] >= '0' && arr[i-1] <= '9') {
 				continue
 			} else {
-				arr{i] -= 32
+				arr[i] -= 32
 			}
 		}
 	}
