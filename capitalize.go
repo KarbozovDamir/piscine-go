@@ -6,7 +6,7 @@ func Capitalize(s string) string {
 	for range arr {
 		count++
 	}
-	if arr[0] >= 'a' && arr{0] <= 'z' {
+	if arr[0] >= 'a' && arr[0] <= 'z' {
 		arr[0] -= 32
 	}
 	for i := 1; i < count; i++ {
