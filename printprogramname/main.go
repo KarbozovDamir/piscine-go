@@ -7,8 +7,9 @@ import (
 )
 
 func main() {
-	for _, letter := range os.Args[0] {
-		z01.PrintRune(letter)
+	res := os.Args[0]
+	for _, el := range res {
+		z01.PrintRune(el)
 	}
 	z01.PrintRune('\n')
 }
