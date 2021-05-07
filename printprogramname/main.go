@@ -1,15 +1,18 @@
 package main
 
-import (
-	"os"
+package main
 
-	"github.com/01-edu/z01"
+import (
+    "os"
+
+    "github.com/01-edu/z01"
 )
 
 func main() {
-	result := os.Args[1]
-	for _, el := range result {
-		z01.PrintRune(el)
-	}
-	z01.PrintRune('\n')
+    for i, val := range os.Args[0] {
+        if i > 1 {
+            z01.PrintRune(val)
+        }
+    }
+    z01.PrintRune('\n')
 }
