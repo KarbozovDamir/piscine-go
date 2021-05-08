@@ -41,8 +41,6 @@ func SplitWhiteSpaces(str string) []string {
 				}
 			}
 		}
-
 	}
-
 	return arr
 }
