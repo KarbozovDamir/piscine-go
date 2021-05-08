@@ -6,7 +6,7 @@ func ConcatParams(str []string) string {
 		if index == 0 {
 			indString = indString + item
 		} else {
-			indString = indString + item
+			indString = indString + "\n" + item
 		}
 	}
 	return indString
