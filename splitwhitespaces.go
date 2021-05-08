@@ -1,31 +1,47 @@
 package piscine
 
 func SplitWhiteSpaces(str string) []string {
-	k := 0
-	no_white_spaces := false
-	for index := range str {
-		if no_white_spaces && index != 0 && (str[index-1] == '\n' || str[index-1] == '\t' || str[index-1] == ' ') 
-			k++
-		}
-		if str[index] != '\n' && str[index] != '\t' && str[index] != ' ' {
-			no_white_spaces = true
+	spaces := 0
+	totalLength := 0
+	for range str {
+		totalLength++
+	}
+	for _, item := range str {
+		if item == ' ' {
+			spaces++
 		}
 	}
-	k++
-
-	x := 0
-	ans := make([]string, k)
-	ok := true
-	for _, c := range str {
-		if c == '\n' || c == '\t' || c == ' ' {
-			if !ok {
-				x++
+	whiteSpaces := make([]int, spaces+2)
+	i := 0
+	for index, item := range str {
+		if index == 0 {
+			whiteSpaces[i] = index
+			i++
+		}
+		if item == ' ' || item == '\n' {
+			whiteSpaces[i] = index
+			i++
+		}
+	}
+	whiteSpaces[i] = totalLength
+	lengthOfArray := 0
+	for range whiteSpaces {
+		lengthOfArray++
+	}
+	arr := make([]string, spaces+1)
+	for j := 0; j < lengthOfArray-1; j++ {
+		if j == 0 {
+			for k := whiteSpaces[j]; k < whiteSpaces[j+1]; k++ {
+				arr[j] = arr[j] + string(str[k])
 			}
-			ok = true
-			continue
+		} else {
+			if whiteSpaces[j+1]-whiteSpaces[j] != 1 {
+				for k := whiteSpaces[j] + 1; k < whiteSpaces[j+1]; k++ {
+					arr[j] = arr[j] + string(str[k])
+				}
+			}
 		}
-		ans[x] = ans[x] + string(c)
-		ok = false
+
 	}
-	return ans
+	return arr
 }
