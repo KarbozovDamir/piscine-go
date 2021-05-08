@@ -5,9 +5,9 @@ func AppendRange(min, max int) []int {
 		return nil
 	}
 
-	var result []int
+	var res []int
 	for i := min; i < max; i++ {
-		result = append(result, i)
+		res = append(res, i)
 	}
-	return result
+	return res
 }
