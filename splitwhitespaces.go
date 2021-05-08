@@ -1,39 +1,32 @@
 package piscine
 
 func SplitWhiteSpaces(str string) []string {
-	var len = 0
-	var strlLen = 0
-	var start = 0
-	var j = 0
-	var wasLetter = false
-	for _, v := range str {
-		if (v == '\n' || v == '\t' || v == ' ') && wasLetter {
-			len++
-			wasLetter = false
-		} else if v != '\n' && v != '\t' && v != ' ' {
-			wasLetter = true
+	count := 0
+	strFound := false
+
+	for _, char := range str {
+		if char == ' ' || char == '\n' || char == '\t' {
+			strFound = false
+		} else if !strFound {
+			strFound = true
+			count++
 		}
-		strlLen++
 	}
-	if wasLetter {
-		len++
-		wasLetter = false
-	}
-	arr := make([]string, len)
-	for i, v := range str {
-		if (v == '\n' || v == '\t' || v == ' ') && wasLetter {
-			arr[j] = str[start:i]
-			j++
-			wasLetter = false
-		} else if v != '\n' && v != '\t' && v != ' ' {
-			if !wasLetter {
-				start = i
+
+	result := make([]string, count)
+
+	fillIndex := -1
+	strFound = false
+	for _, char := range str {
+		if char == ' ' || char == '\n' || char == '\t' {
+			strFound = false
+		} else {
+			if !strFound {
+				fillIndex++
 			}
-			wasLetter = true
+			strFound = true
+			result[fillIndex] += string(char)
 		}
 	}
-	if wasLetter {
-		arr[j] = str[start:strlLen]
-	}
-	return arr
+	return result
 }
