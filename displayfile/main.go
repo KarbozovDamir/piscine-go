@@ -19,7 +19,7 @@ func main() {
 	} else if arguments[0] == "quest8.txt" {
 		content, err := ioutil.ReadFile(arguments[0])
 		if err != nil {
-			fmt.Println(err.Error())
+			fmt.Print(err.Error())
 			return
 		}
 		fmt.Println(string(content))
