@@ -7,16 +7,14 @@ import (
 )
 
 func main() {
-	arguments := os.Args[0:1]
+	arguments := os.Args[:1]
 
 	length := 0
 	for i := range arguments {
 		length = i + 1
 	}
-
 	if length > 1 {
 		fmt.Println("Too many arguments")
-
 	} else if length == 0 {
 		fmt.Println("File name missing")
 
@@ -28,7 +26,5 @@ func main() {
 			return
 		}
 		fmt.Println(string(content))
-
 	}
-
 }
