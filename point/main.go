@@ -2,8 +2,6 @@ package main
 
 import "github.com/01-edu/z01"
 
-//import "fmt"
-
 type point struct {
 	x int
 	y int
@@ -29,7 +27,8 @@ func main() {
 	z01.PrintRune('=')
 	z01.PrintRune(' ')
 	IntoRune(points.y)
-	z01.PrintRune('\n')//	fmt.Printf("x = %d, y = %d\n",points.x, points.y)			
+	z01.PrintRune('\n')
+	//	fmt.Printf("x = %d, y = %d\n",points.x, points.y)
 }
 
 func check(r int) {
@@ -48,7 +47,7 @@ func check(r int) {
 		check(r / 10)
 	}
 	z01.PrintRune(c)
-		return
+	return
 }
 
 func IntoRune(n int) {
