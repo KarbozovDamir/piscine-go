@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/01-edu/z01"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func printS(s string) {
@@ -11,7 +12,6 @@ func printS(s string) {
 	for range arrayStr {
 		count++
 	}
-
 	for i := 0; i < count; i++ {
 		z01.PrintRune(arrayStr[i])
 	}
