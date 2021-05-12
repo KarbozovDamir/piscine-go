@@ -1,13 +1,11 @@
 package piscine
 
 func IsSorted(f func(a, b int) int, a []int) bool {
-
-	f := true
+	f0 := true
 	f1 := true
-
 	for i := 0; i < Count(a)-1; i++ {
 		if f(a[i], a[i+1]) > 0 {
-			f = false
+			f0 = false
 		}
 	}
 	for i := 0; i < Count(a)-1; i++ {
@@ -15,8 +13,7 @@ func IsSorted(f func(a, b int) int, a []int) bool {
 			f1 = false
 		}
 	}
-	return f || f1
-
+	return f0 || f1
 }
 
 func f(a, b int) int {
