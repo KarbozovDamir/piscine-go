@@ -1,12 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"piscine"
-)
+import "fmt"
 
 func main() {
-	var donnie piscine.Pilot
+	var donnie.Pilot
 	donnie.Name = "Donnie"
 	donnie.Life = 100.0
 	donnie.Age = 24
