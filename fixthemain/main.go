@@ -6,55 +6,47 @@ type Door struct {
 	state bool
 }
 
-var OPEN bool = true
-var CLOSE bool = false
-
-func OpenDoor(door *Door) {
-	PrintStr("Door Opening...")
-	PrintStr("\n")
-	door.state = OPEN
-}
-
-func main() {
-	door := &Door{}
-	OpenDoor(door)
-	if IsDoorClose(door) == true {
-		OpenDoor(door)
-		return
-	}
-	if IsDoorOpen(door) == true {
-		CloseDoor(door)
-		return
-	}
-}
-
 func PrintStr(str string) {
 	arrayRune := []rune(str)
 	for _, s := range arrayRune {
 		z01.PrintRune(s)
 	}
+	z01.PrintRune(10)
 }
 
-func CloseDoor(door *Door) {
+func OpenDoor(ptrDoor *Door) bool {
+	PrintStr("Door Opening...")
+	ptrDoor.state = true
+	return true
+}
+
+func CloseDoor(ptrDoor *Door) bool {
 	PrintStr("Door Closing...")
-	PrintStr("\n")
-	door.state = CLOSE
+	ptrDoor.state = false
+	return true
 }
 
-func IsDoorOpen(door *Door) bool {
+func IsDoorOpen(ptrDoor *Door) bool {
 	PrintStr("is the Door opened ?")
-	PrintStr("\n")
-	if door.state == OPEN {
-		return true
-	}
-	return false
+	return ptrDoor.state == true
 }
 
-func IsDoorClose(door *Door) bool {
+func IsDoorClose(ptrDoor *Door) bool {
 	PrintStr("is the Door closed ?")
-	PrintStr("\n")
-	if door.state == CLOSE {
-		return true
+	return ptrDoor.state == false
+}
+
+func main() {
+	door := &Door{}
+
+	OpenDoor(door)
+	if IsDoorClose(door) {
+		OpenDoor(door)
 	}
-	return false
+	if IsDoorOpen(door) {
+		CloseDoor(door)
+	}
+	if door.state == true {
+		CloseDoor(door)
+	}
 }
