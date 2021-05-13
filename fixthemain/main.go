@@ -26,7 +26,6 @@ func main() {
 		CloseDoor(door)
 		return
 	}
-
 }
 
 func PrintStr(str string) {
