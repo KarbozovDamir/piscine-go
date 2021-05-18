@@ -11,7 +11,7 @@ type List struct {
 }
 
 func ListPushBack(l *List, data interface{}) {
-	res := NodeL{
+	res := &NodeL{
 		Data: data,
 	}
 	if l.Head == nil {
