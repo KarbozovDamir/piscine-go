@@ -5,9 +5,9 @@ func ListReverse(l *List) {
 	l.Tail = l.Head
 	var x, z *NodeL
 	for y != nil {
-		x = y.Next
+		z = y.Next
 		y.Next = x
-		z = y
+		x = y
 		y = z
 	}
 	l.Head = x
