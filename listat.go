@@ -7,8 +7,7 @@ func ListAt(l *NodeL, pos int) *NodeL {
 	node := l.Head
 	for l.Head != nil {
 		node = l.Head
-		l.Head = l.Head.Next
-
+		l.Head
 	}
 	return node.Data
 }
