@@ -1,12 +1,7 @@
-package main
+package piscine
 
 import "github.com/01-edu/z01"
 
-func main() {
-	PrintComb2()
-}
-
-// "github.com/01-edu/z01"
 func PrintComb2() {
 	for i := 0; i <= 99; i++ {
 		for j := 0; j <= 99; j++ {
