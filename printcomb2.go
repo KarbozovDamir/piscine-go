@@ -1,28 +1,43 @@
 package piscine
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
 
 // PrintComb2 : prcomb2
 func PrintComb2() {
-	for i := '0'; i <= '9'; i++ {
-		for j := '0'; j <= '9'; j++ {
-			for k := i; k <= '9'; k++ {
-				for l := '0'; l <= '9'; l++ {
-					if i == k && l <= j {
-						continue
-					}
-					z01.PrintRune(i)
-					z01.PrintRune(j)
+
+	for x := 0; x <= 99; x++ {
+		for y := 0; y <= 99; y++ {
+			if x < y {
+				printR(inttorune(x))
+				z01.PrintRune(' ')
+				printR(inttorune(y))
+				if x == 98 && y == 99 {
+					z01.PrintRune('\n')
+				} else {
+					z01.PrintRune(',')
 					z01.PrintRune(' ')
-					z01.PrintRune(k)
-					z01.PrintRune(l)
-					if i != '9' || j != '8' || k != '9' || l != '9' {
-						z01.PrintRune(',')
-						z01.PrintRune(' ')
-					}
+
 				}
 			}
 		}
+
+	}
+	z01.PrintRune('\n')
+
+}
+
+func inttorune(num int) []rune {
+	ans := []rune{}
+	ans = append(ans, rune(num/10+48))
+	ans = append(ans, rune(num%10+48))
+	return ans
+}
+
+func printR(s []rune) {
+	for _, i := range s {
+		z01.PrintRune(i)
 	}
 }
 
