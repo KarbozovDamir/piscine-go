@@ -1,18 +1,17 @@
-package main
+// package piscine
 
 import "github.com/01-edu/z01"
 
-func main() {
-	PrintComb()
-}
+// func main() {
+// 	PrintComb()
+// }
 
 func PrintComb() {
-	// var str int = 0
+
 	for i := '0'; i <= '7'; i++ {
 		for j := '1'; j <= '8'; j++ {
 			for k := '2'; k <= '9'; k++ {
 				if i < j && j < k {
-					// str = 0
 					z01.PrintRune(i)
 					z01.PrintRune(j)
 					z01.PrintRune(k)
