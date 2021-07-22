@@ -6,7 +6,6 @@ import (
 
 // PrintComb2 : prcomb2
 func PrintComb2() {
-
 	for x := 0; x <= 99; x++ {
 		for y := 0; y <= 99; y++ {
 			if x < y {
@@ -22,10 +21,7 @@ func PrintComb2() {
 				}
 			}
 		}
-
 	}
-	z01.PrintRune('\n')
-
 }
 
 func inttorune(num int) []rune {
