@@ -10,7 +10,6 @@ func PrintNbr(n int) {
 
 	if n < 0 {
 		z01.PrintRune('-')
-
 	}
 	if n == 0 {
 		z01.PrintRune('0')
@@ -25,6 +24,5 @@ func PrintNbr(n int) {
 	}
 	for i := len(num) - 1; i >= 0; i-- {
 		z01.PrintRune(rune(num[i]))
-
 	}
 }

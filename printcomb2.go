@@ -1,41 +1,135 @@
 package piscine
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
 // PrintComb2 : prcomb2
+
 func PrintComb2() {
-	for x := 0; x <= 99; x++ {
-		for y := 0; y <= 99; y++ {
-			if x < y {
-				printR(inttorune(x))
-				z01.PrintRune(' ')
-				printR(inttorune(y))
-				if x == 98 && y == 99 {
-					z01.PrintRune('\n')
-				} else {
+	for i := 0; i < 100; i++ {
+		for j := 0; j < 100; j++ {
+			if i < j {
+				z01.PrintRune(rune(i/10 + 48))
+				z01.PrintRune(rune(i%10 + 48))
+
+				z01.PrintRune(rune(j/10 + 48))
+				z01.PrintRune(rune(j%10 + 48))
+				if i != 98 || j != 99 {
 					z01.PrintRune(',')
 					z01.PrintRune(' ')
 
 				}
+
 			}
 		}
 	}
+	z01.PrintRune('\n')
 }
 
-func inttorune(num int) []rune {
-	ans := []rune{}
-	ans = append(ans, rune(num/10+48))
-	ans = append(ans, rune(num%10+48))
-	return ans
-}
+// ++
+// +
+// +
+// ++
+// +
+// +
+// +
 
-func printR(s []rune) {
-	for _, i := range s {
-		z01.PrintRune(i)
-	}
-}
+// ++
+// +
+// +
+// +
+// +
+// +
+// +
+// +
+// +
+// +
+// ++
+
+// /+/ ++
+//+ +
+// ++
+// +
+// ++
+// ++
+// +
+// +
+// +
+// +
+
+// ++
+// +
+// +
+
+// +
+// +
+// ++
+// +
+// +
+
+// ++
+// +
+// +
+// +++
+// +
+// +
+// +
+// +
+// ++
+// +
+// +
+// ++++++++
+// +++++++++++++++++++++++++++++++++++
+
+// func PrintComb2() {
+// 	for i := 0; i <= 99; i++ {
+// 		for j := 0; j <= 99; j++ {
+// 			if i < j {
+// 				z01.PrintRune(rune(i/10 + 48))
+// 				z01.PrintRune(rune(i%10 + 48))
+// 				z01.PrintRune(' ')
+// 				z01.PrintRune(rune(j/10 + 48))
+// 				z01.PrintRune(rune(j%10 + 48))
+// 				if i != 98 || j != 99 {
+// 					z01.PrintRune(',')
+// 					z01.PrintRune(' ')
+// 				}
+// 			}
+// 		}
+// 	}
+// 	z01.PrintRune('\n')
+// }
+
+// func PrintComb2() {
+// 	for x := 0; x <= 99; x++ {
+// 		for y := 0; y <= 99; y++ {
+// 			if x < y {
+// 				printR(inttorune(x))
+// 				z01.PrintRune(' ')
+// 				printR(inttorune(y))
+// 				if x == 98 && y == 99 {
+// 					z01.PrintRune('\n')
+// 				} else {
+// 					z01.PrintRune(',')
+// 					z01.PrintRune(' ')
+
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// func inttorune(num int) []rune {
+// 	ans := []rune{}
+// 	ans = append(ans, rune(num/10+48))
+// 	ans = append(ans, rune(num%10+48))
+// 	return ans
+// }
+
+// func printR(s []rune) {
+// 	for _, i := range s {
+// 		z01.PrintRune(i)
+// 	}
+// }
 
 // 	for i := 0; i <= 99; i++ {
 // 		for j := 0; j <= 99; j++ {
