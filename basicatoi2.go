@@ -5,7 +5,7 @@ func BasicAtoi2(s string) int {
 	if isNumeric(s) { // если нашли число
 		res := 0
 		for _, el := range s { // собираем число в переменной - res
-			res = res*10 + int(el-48)
+			res = res*10 + int(el-48) // разбор числа по букваим(числам, индексам)
 		}
 		return res
 	}
