@@ -1,7 +1,6 @@
 package piscine
 
 func BasicAtoi(s string) int {
-
 	res := 0
 	for _, el := range s {
 		if string(el) != "-" && string(el) != "+" {
