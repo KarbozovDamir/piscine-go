@@ -14,7 +14,8 @@ func PrintNbr(n int) {
 	if n == 0 {
 		z01.PrintRune('0')
 	}
-	for n != 0 { // it is meaning until n changed to zero
+	// this func for get from int to str
+	for n != 0 { // it is meaning until n changed to zero if n ==0 then out
 		lastNum := n % 10
 		if n < 0 {
 			lastNum = -lastNum
