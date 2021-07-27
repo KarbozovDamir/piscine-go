@@ -10,8 +10,8 @@ func BasicAtoi2(s string) int {
 		return res
 	}
 	return 0
-
 }
+
 func isNumeric(s string) bool {
 	for _, el := range s {
 		if el == '+' || el == '-' {
@@ -22,5 +22,4 @@ func isNumeric(s string) bool {
 		}
 	}
 	return true
-
 }
