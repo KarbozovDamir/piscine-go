@@ -5,18 +5,13 @@ func IsNumeric(str string) bool {
 	if str == "" {
 		return false
 	}
-	count := 0
+	if str[0] == '+' || str[0] == '-' {
+		str = str[1:]
+	}
 	for _, letter := range str {
-		if letter == '+' || letter == '-' {
-			count++
-			continue
-		}
 		if letter < '0' || letter > '9' {
 			return false
 		}
-	}
-	if count > 1 {
-		return false
 	}
 	return true
 }
