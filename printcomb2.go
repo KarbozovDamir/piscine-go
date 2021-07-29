@@ -3,10 +3,9 @@ package piscine
 import "github.com/01-edu/z01"
 
 // PrintComb2 : prcomb2
-
 func PrintComb2() {
-	for i := 0; i < 100; i++ {
-		for j := 0; j < 100; j++ {
+	for i := 0; i <= 99; i++ {
+		for j := 0; j <= 99; j++ {
 			if i < j {
 				z01.PrintRune(rune(i/10 + 48))
 				z01.PrintRune(rune(i%10 + 48))
@@ -18,86 +17,12 @@ func PrintComb2() {
 					z01.PrintRune(' ')
 
 				}
-
 			}
 		}
 	}
-	z01.PrintRune('\n')
 }
 
-// ++
-// +
-// +
-// ++
-// +
-// +
-// +
-
-// ++
-// +
-// +
-// +
-// +
-// +
-// +
-// +
-// +
-// +
-// ++
-
-// /+/ ++
-//+ +
-// ++
-// +
-// ++
-// ++
-// +
-// +
-// +
-// +
-
-// ++
-// +
-// +
-
-// +
-// +
-// ++
-// +
-// +
-
-// ++
-// +
-// +
-// +++
-// +
-// +
-// +
-// +
-// ++
-// +
-// +
-// ++++++++
-// +++++++++++++++++++++++++++++++++++
-
-// func PrintComb2() {
-// 	for i := 0; i <= 99; i++ {
-// 		for j := 0; j <= 99; j++ {
-// 			if i < j {
-// 				z01.PrintRune(rune(i/10 + 48))
-// 				z01.PrintRune(rune(i%10 + 48))
-// 				z01.PrintRune(' ')
-// 				z01.PrintRune(rune(j/10 + 48))
-// 				z01.PrintRune(rune(j%10 + 48))
-// 				if i != 98 || j != 99 {
-// 					z01.PrintRune(',')
-// 					z01.PrintRune(' ')
-// 				}
-// 			}
-// 		}
-// 	}
-// 	z01.PrintRune('\n')
-// }
+// func PrintComb
 
 // func PrintComb2() {
 // 	for x := 0; x <= 99; x++ {
