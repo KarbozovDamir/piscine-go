@@ -1,33 +1,21 @@
 package main
 
-import (
-	"piscine"
-
-	"github.com/01-edu/z01"
-)
-
 func main() {
-	piscine.PrintNbr(-123)
-	piscine.PrintNbr(0)
-	piscine.PrintNbr(123)
-	z01.PrintRune('\n')
-	// fmt.Println(piscine.BasicAtoi2("12345"))
-	// fmt.Println(piscine.BasicAtoi2("0000000012345"))
-	// fmt.Println(piscine.BasicAtoi2("012 345"))
-	// fmt.Println(piscine.BasicAtoi2("Hello World!"))
-	// fmt.Println(piscine.IsNumeric("12345"))         // true
-	// fmt.Println(piscine.IsNumeric("0000000012345")) // true
-	// fmt.Println(piscine.IsNumeric("012 345"))       // false
-	// fmt.Println(piscine.IsNumeric("Hello World!"))  // false
-	// fmt.Println(piscine.BasicAtoi("12345"))
-	// fmt.Println(piscine.BasicAtoi("0000000012345"))
-	// fmt.Println(piscine.BasicAtoi("000000"))
-	// fmt.Println(piscine.Atoi("12345"))
-	// fmt.Println(piscine.Atoi("0000000012345"))
-	// fmt.Println(piscine.Atoi("012 345"))
-	// fmt.Println(piscine.Atoi("Hello World!"))
-	// fmt.Println(piscine.Atoi("+1234"))
-	// fmt.Println(piscine.Atoi("-1234"))
-	// fmt.Println(piscine.Atoi("++1234"))
-	// fmt.Println(piscine.Atoi("123-"))
+	// case1 := []int{1, 2, 3, 4}
+	// out := TwoSum(case1, 5)
+	// fmt.Println(out)
+	// l := piscine.StrLen("Hello World!")
+	// fmt.Println(l)
+	// z01.PrintRune(piscine.FirstRune("Hello!"))
+	// z01.PrintRune(piscine.FirstRune("Salut!"))
+	// z01.PrintRune(piscine.FirstRune("Ola!"))
+	// z01.PrintRune('\n')
+	// z01.PrintRune(piscine.LastRune("Hello!"))
+	// z01.PrintRune(piscine.LastRune("Salut!"))
+	// z01.PrintRune(piscine.LastRune("Ola!"))
+	// z01.PrintRune('\n')
+	// result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
+	// piscine.SortWordArr(result)
+
+	// fmt.Println(result)
 }

@@ -1,6 +1,7 @@
 package piscine
 
-// IsNumeric : isn
+// IsNumeric : isnumeric
+
 func IsNumeric(str string) bool {
 	if str == "" {
 		return false

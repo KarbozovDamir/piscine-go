@@ -20,6 +20,18 @@ package piscine
 // 	return true
 // }
 
+// func FindNextPrime(nb int) int {
+// 	if nb < 3 {
+// 		return 2
+// 	}
+// 	for id := 2; id*id <= nb; id++ {
+// 		if nb%id == 0 {
+// 			return FindNextPrime(nb + 1)
+// 		}
+// 	}
+// 	return nb
+// }
+
 // IsPrime : prime
 func IsPrime(nb int) bool {
 	if nb > 1 {
