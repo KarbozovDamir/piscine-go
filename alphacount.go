@@ -2,8 +2,8 @@ package piscine
 
 func AlphaCount(s string) int {
 	count := 0
-	for _, a := range s {
-		if (a >= 'A' && a <= 'Z') || (a >= 'a' && a <= 'z') {
+	for _, j := range s {
+		if (j >= 'A' && j <= 'Z') || (j >= 'a' && j <= 'z') {
 			count++
 		}
 	}
