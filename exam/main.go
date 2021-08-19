@@ -9,7 +9,7 @@ import (
 
 func Itoa(number int) (result string) {
 	for number > 0 {
-		result += string(number%10 + 48)
+		result = string(number%10+48) + result
 		number /= 10
 	}
 	return
