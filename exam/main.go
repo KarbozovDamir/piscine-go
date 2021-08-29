@@ -1,16 +1,206 @@
 package main
 
-//******************************Nauuo
+import (
+	"fmt"
+	"os"
+)
+
+//*********************************Union
+func main() {
+
+	if len(os.Args[1:]) == 0 {
+		fmt.Print("\n")
+		return
+	}
+	if len(os.Args[1:]) == 1 {
+		fmt.Println("\n")
+		return
+	}
+	if len(os.Args) == 3 {
+		s1 := os.Args[1]
+		s2 := os.Args[2]
+		s1 += s2
+		res := ""
+		delete := make(map[rune]bool)
+		for _, ch := range s1 {
+			if delete[ch] == false {
+				res += string(ch)
+				delete[ch] = true
+			}
+		}
+		fmt.Println(res)
+	}
+}
+
+//***********************************************
+// func Atoi(s string) (n int) {
+// 	var res int = 0
+// 	neg := false
+// 	if s[0] == '+' {
+// 		s = s[1:]
+// 	}
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 	}
+// 	for _, el := range s {
+// 		if el >= '0' && el <= '9' {
+// 			res = res*10 + int(el-48)
+
+// 		} else {
+// 			return 0
+// 		}
+// 	}
+// 	if neg {
+// 		res *= -1
+// 	}
+// 	if !neg && res < 0 {
+// 		return 0
+// 	}
+// 	if neg && res > 0 {
+// 		return 0
+// 	}
+// 	return res
+// }
+//**************************************balancedstring
 // import (
 // 	"fmt"
+// 	"os"
 // )
 
 // func main() {
-// 	fmt.Println(Nauuo(2, 2, 0))
+// 	if len(os.Args) == 2 {
+// 		C := 0 // it is var is not rune
+// 		D := 0 // still var is not rune
+// 		counter := 0
+// 		for _, el := range os.Args[1] {
+// 			if el == 'C' {
+// 				C++
+// 			} else {
+// 				D++
+// 			}
+// 			if C == D {
+// 				counter++
+// 			}
+// 		}
+// 		fmt.Println(counter)
+// 	}
+// }
+
+//************************************************TabMult
+// import (
+// 	"os"
+// 	"strconv"
+
+// 	"github.com/01-edu/z01"
+// )
+
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		var res string
+// 		n, _ := strconv.Atoi(os.Args[1])
+// 		for i := 1; i <= 9; i++ {
+// 			res += strconv.Itoa(i) + " x " + strconv.Itoa(n) + " = " + strconv.Itoa(n*i) + "\n"
+// 		}
+// 		for _, j := range res {
+// 			z01.PrintRune(j)
+// 		}
+
+// 	}
+// }
+// include this Itoa
+// func Itoa(n int) (res string) {
+// 	if n > 0 {
+// 		res = string(n%10+48) + res
+
+// 		n /= 10
+// 	}
+// 	return
+// }
+
+//***********************************************INTER
+// $ go run . "padinton" "paqefwtdjetyiytjneytjoeyjnejeyj"
+// padinto
+// $ go run . ddf6vewg64f  twthgdwthdwfteewhrtag6h4ffdhsd
+// df6ewg4
+// $
+
+// func main() {
+// 	if len(os.Args) == 3 {
+// 		s1 := os.Args[1]
+// 		s2 := os.Args[2]
+// 		res := ""
+// 		for _, el1 := range s1 {
+// 			for _, el2 := range s2 {
+// 				if el1 == el2 {
+// 					isUniq := true
+// 					for _, el3 := range res {
+// 						if el3 == el1 {
+// 							isUniq = false
+// 						}
+// 					}
+// 					if isUniq {
+// 						res += string(el1)
+// 					}
+// 				}
+// 			}
+// 		}
+// 		os.Stdout.WriteString(res + "\n")
+// 	}
+// }
+
+//**************************************************TwoSum
+// func main() {
+// 	case1 := []int{1, 2, 3, 4}
+// 	out := TwoSum(case1, 5)
+// 	fmt.Println(out)
+// }
+
+// func TwoSum(nums []int, target int) []int {
+// 	for i := 0; i <= len(nums); i++ {
+// 		for j := i + 1; j <= len(nums); j++ {
+// 			if nums[i]+nums[j] == target {
+// 				return []int{i, j}
+// 			}
+// 		}
+// 	}
+// 	return nil
+// }
+
+/*
+   rostring
+   Instructions
+
+   Write a program that takes a string and displays this string after rotating it one word to the left.
+
+   Thus, the first word becomes the last, and others stay in the same order.
+
+   A word is a sequence of alphanumerical characters.
+
+   Words will be separated by only one space in the output.
+
+   If the number of arguments is different from 1, the program displays a newline.
+   Usagego run . "FOR PONY" | cat -e
+*/
+//******************************************************NAuuo
+// func main() {
+// 	fmt.Println(Nauuo(50, 43, 20))
 // 	fmt.Println(Nauuo(13, 13, 0))
 // 	fmt.Println(Nauuo(10, 9, 0))
 // 	fmt.Println(Nauuo(5, 9, 2))
 // }
+// func Nauuo(plus, minus, rand int) string {
+// 	if plus > minus+rand {
+// 		return "+"
+// 	} else if minus > plus+rand {
+// 		return "-"
+// 	} else if plus == minus && rand == 0 {
+// 		return "0"
+// 	} else {
+// 		return "?"
+// 	}
+// }
+
+//***********************************************2 variant
 // func Nauuo(plus, minus, rand int) string {
 // 	res := ""
 // 	diferent := plus - minus
@@ -230,37 +420,6 @@ package main
 // 	return checker
 // }
 
-//*********************************Atoi
-// import (
-// 	"os"
-// 	"strconv"
-
-// 	"github.com/01-edu/z01"
-// )
-
-// func Itoa(n int) (res string) {
-// 	if n > 0 {
-// 		res = string(n%10+48) + res
-// 		n /= 10
-// 	}
-// 	return
-// }
-
-// func main() {
-// 	var res string
-// 	n, _ := strconv.Atoi(os.Args[1])
-// 	for i := 1; i <= 9; i++ {
-// 		res += Itoa(i) + " x " + Itoa(n) + " = " + Itoa(n*i) + "\n"
-// 	}
-// 	for _, el := range res {
-// 		z01.PrintRune(el)
-// 	}
-// }
-
-// func Atoi (s string) int {
-// 	if
-// }
-
 //*********************************************Alphamirror
 // import (
 // 	"os"
@@ -300,8 +459,27 @@ package main
 // 	}
 // 	z01.PrintRune(10)
 // }
+//**********************************************************3 variant
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		res := ""
+// 		for _, el := range os.Args[1] {
+// 			if el >= 'a' && el <= 'z' {
+// 				res += string('z' - el + 'a')
+// 			} else if el >= 'A' && el <= 'Z' {
+// 				res += string('Z' - el + 'A')
+// 			} else {
+// 				res += string(el)
+// 			}
+// 		}
+// 		for _, el := range res {
+// 			z01.PrintRune(el)
+// 		}
+// 	}
+// 	z01.PrintRune(10)
+// }
 
-//***************************lastword
+//***************************************************************lastword
 // import (
 // 	"os"
 
@@ -380,7 +558,27 @@ package main
 
 // 	"github.com/01-edu/z01"
 // )
+//***********************************************first var
 
+// if len(os.Args) == 2 {
+// 	res := ""
+// 	for _, el := range os.Args[1] {
+// 		if el >= 'A' && el < 'M' || el >= 'a' && el < 'm' {
+// 			res += string(el + 13)
+// 		} else if el > 'M' && el <= 'Z' || el > 'm' && el <= 'z' {
+// 			res += string(el - 13)
+// 		} else {
+// 			res += string(el)
+// 		}
+// 	}
+// 	for _, j := range res {
+
+// 		z01.PrintRune(j)
+// 	}
+// }
+// z01.PrintRune(10)
+// }
+//*************************************************************
 // func main() {
 // 	args := os.Args[1:]
 // 	res := ""
@@ -541,35 +739,4 @@ package main
 // 		return 1
 // 	}
 // 	return 0
-// }
-
-//***************************************************************
-
-// func main() {
-// 	args := os.Args[1:]
-// 	if len(args) != 2 {
-// 		return
-// 	}
-// 	s1 := args[0]
-// 	s2 := args[1]
-// 	res := ""
-// 	a := true
-// 	for _, el := range s1 {
-// 		for _, j := range s2 {
-// 			if el == j {
-// 				a = false
-// 				break
-// 			}
-// 		}
-// 		for _, k := range res {
-// 			if k == el {
-// 				a = true
-// 			}
-// 		}
-// 		if !a {
-// 			res += string(el)
-// 		}
-// 		a = true
-// 	}
-// 	fmt.Println(res)
 // }
