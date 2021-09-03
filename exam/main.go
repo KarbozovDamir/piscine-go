@@ -1,38 +1,181 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
+//**********************************************printHex
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		base := "0123456789abcdef"
+// 		res := ""
+// 		num, err := strconv.Atoi(os.Args[1])
+// 		if err != nil {
+// 			z01.PrintRune('0')
+// 		}func main() {
+// 	if len(os.Args) == 2 {
+// 		base := "0123456789abcdef"
+// 		res := ""
+// 		num, err := strconv.Atoi(os.Args[1])
+// 		if err != nil {
+// 			z01.PrintRune('0')
+// 		}
+// 		for num != 0 {
+// 			res = string(base[num%16]) + res
+// 			num /= 16
+// 		}
+// 		for _, r := range res {
+// 			z01.PrintRune(r)
+// 		}
+// 	}
+
+// }
+// 		for num != 0 {
+// 			res = string(base[num%16]) + res
+// 			num /= 16
+// 		}
+// 		for _, r := range res {
+// 			z01.PrintRune(r)
+// 		}
+// 	}
+
+// }
+
+//***************************************************GCD
+// func main() {
+// 	if len(os.Args) == 3 {
+// 		res := 0
+// 		num1, _ := strconv.Atoi(os.Args[1])
+// 		num2, _ := strconv.Atoi(os.Args[2])
+// 		for i := num1; i > 0; i-- {
+// 			if num1%i == 0 && num2%i == 0 {
+// 				res = i
+// 				break
+// 			}
+// 		}
+// 		fmt.Println(res)
+// 	} else {
+// 		fmt.Println()
+// 		return
+// 	}
+// }
+
+//*****************************************lCM
+// func Lcm(first, second int) int {
+// 	res := 0
+// 	for i := second; i <= first*second; i++ {
+// 		if i%first == 0 && i%second == 0 {
+// 			res = i
+// 			break
+// 		}
+// 	}
+// 	return res
+// }
+
+//*********************************Repeatalpha
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		str := os.Args[1]
+// 		for _, r := range str {
+// 			if r >= 'A' && r <= 'Z' {
+// 				for i := 0; i <= int(r)-'A'; i++ {
+// 					z01.PrintRune(r)
+// 				}
+// 			}
+// 			if r >= 'a' && r <= 'z' {
+// 				for i := 0; i <= int(r)-'a'; i++ {
+// 					z01.PrintRune(r)
+// 				}
+// 			} else {
+// 				z01.PrintRune(r)
+// 			}
+// 		}
+// 	}
+// }
+
+//********************Sortworder
+// func main() {
+// 	result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
+// 	SortWordArr(result)
+
+// 	fmt.Println(result)
+// }
+
+// func SortWordArr(a []string) {
+// 	count := 0
+// 	for range a {
+// 		count++
+// 	}
+// 	for i := 0; i < count; i++ {
+// 		for j := i + 1; j < count; j++ {
+// 			if a[i] > a[j] {
+// 				a[i], a[j] = a[j], a[i]
+// 			}
+// 		}
+// 	}
+// }
+
+//*******************************************isPowerOf2
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		nbr, _ := strconv.Atoi(os.Args[1])
+
+// 		flag := "true"
+// 		for nbr > 1 {
+// 			if nbr%2 != 0 {
+// 				flag = "false"
+// 				break
+// 			}
+// 			nbr /= 2
+
+// 		}
+// 		for _, r := range flag {
+// 			z01.PrintRune(r)
+// 		}
+// 		z01.PrintRune(10)
+// 	}
+// }
+
+//*****************************************************************AlphaCount
+// func main() {
+// 	s := "Hello 78 World!    4455 /"
+// 	nb := piscine.AlphaCount(s)
+// 	fmt.Println(nb)
+// }
+// func AlphaCount(s string) int {
+// 	count := 0
+// 	for _, j := range s {
+// 		if (j >= 'A' && j <= 'Z') || (j >= 'a' && j <= 'z') {
+// 			count++
+// 		}
+// 	}
+// 	return count
+// }
 
 //*********************************Union
-func main() {
+// func main() {
 
-	if len(os.Args[1:]) == 0 {
-		fmt.Print("\n")
-		return
-	}
-	if len(os.Args[1:]) == 1 {
-		fmt.Println("\n")
-		return
-	}
-	if len(os.Args) == 3 {
-		s1 := os.Args[1]
-		s2 := os.Args[2]
-		s1 += s2
-		res := ""
-		delete := make(map[rune]bool)
-		for _, ch := range s1 {
-			if delete[ch] == false {
-				res += string(ch)
-				delete[ch] = true
-			}
-		}
-		fmt.Println(res)
-	}
-}
+// 	if len(os.Args[1:]) == 0 {
+// 		fmt.Print("\n")
+// 		return
+// 	}
+// 	if len(os.Args[1:]) == 1 {
+// 		fmt.Println()
+// 		return
+// 	}
+// 	if len(os.Args) == 3 {
+// 		s1 := os.Args[1]
+// 		s2 := os.Args[2]
+// 		s1 += s2
+// 		res := ""
+// 		delete := make(map[rune]bool)
+// 		for _, ch := range s1 {
+// 			if delete[ch] == false {
+// 				res += string(ch)
+// 				delete[ch] = true
+// 			}
+// 		}
+// 		fmt.Println(res)
+// 	}
+// }
 
-//***********************************************
+//***********************************************Atoi
 // func Atoi(s string) (n int) {
 // 	var res int = 0
 // 	neg := false
@@ -51,10 +194,7 @@ func main() {
 // 		}
 // 	}
 // 	if neg {
-// 		res *= -1
-// 	}
-// 	if !neg && res < 0 {
-// 		return 0
+// 		res *= -1+, -, /, *, %
 // 	}
 // 	if neg && res > 0 {
 // 		return 0
@@ -83,12 +223,7 @@ func main() {
 // 			}
 // 		}
 // 		fmt.Println(counter)
-// 	}
-// }
-
-//************************************************TabMult
-// import (
-// 	"os"
+// 	}+, -, /, *, %
 // 	"strconv"
 
 // 	"github.com/01-edu/z01"
@@ -112,7 +247,7 @@ func main() {
 // 	if n > 0 {
 // 		res = string(n%10+48) + res
 
-// 		n /= 10
+// 		n /= 10+, -, /, *, %
 // 	}
 // 	return
 // }
@@ -363,11 +498,7 @@ func main() {
 // 	if len(s) == 0 || len(s) > 19 {
 // 		return 0, true
 // 	}
-// 	for _, el := range s {
-// 		if el >= '0' && el <= '9' {
-// 			res = res*10 + int64(el-48)
-// 		} else {
-// 			return 0, true
+// 	for _, el := range s {l
 // 		}
 // 	}
 // 	if neg {
@@ -383,35 +514,6 @@ func main() {
 // }
 
 // Atoi : convert from string to int
-// func atoi(s string) int {
-// 	res := 0
-// 	neg := false
-// 	if s[0] == '+' {
-// 		s = s[1:]
-// 	}
-// 	if s[0] == '-' {
-// 		s = s[1:]
-// 		neg = true
-// 	}
-// 	for _, el := range s {
-// 		if el >= '0' && el <= '9' {
-// 			res = res*10 + int(el-48)
-// 		} else {
-// 			return 0
-// 		}
-// 	}
-// 	if neg {
-// 		res *= -1
-// 	}
-// 	if !neg && res < 0 {
-// 		return 0
-// 	}
-// 	if neg && res > 0 {
-// 		return 0
-// 	}
-// 	return res
-// }
-
 // func Checker(b string) bool {
 // 	checker := true
 // 	if b != "/" && b != "%" && b != "*" && b != "+" && b != "-" {
