@@ -25,18 +25,6 @@ package main
 // 		}
 // 	}
 
-// }
-// 		for num != 0 {
-// 			res = string(base[num%16]) + res
-// 			num /= 16
-// 		}
-// 		for _, r := range res {
-// 			z01.PrintRune(r)
-// 		}
-// 	}
-
-// }
-
 //***************************************************GCD
 // func main() {
 // 	if len(os.Args) == 3 {
