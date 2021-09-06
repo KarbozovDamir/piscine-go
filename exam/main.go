@@ -1,40 +1,144 @@
 package main
 
-//**********************************************printHex
 // func main() {
-// 	if len(os.Args) == 2 {
-// 		base := "0123456789abcdef"
-// 		res := ""
-// 		num, err := strconv.Atoi(os.Args[1])
-// 		if err != nil {
-// 			z01.PrintRune('0')
-// 		}func main() {
-// 	if len(os.Args) == 2 {
-// 		base := "0123456789abcdef"
-// 		res := ""
-// 		num, err := strconv.Atoi(os.Args[1])
-// 		if err != nil {
-// 			z01.PrintRune('0')
-// 		}
-// 		for num != 0 {
-// 			res = string(base[num%16]) + res
-// 			num /= 16
-// 		}
-// 		for _, r := range res {
-// 			z01.PrintRune(r)
+// 	var n, c, d int
+// 	fmt.Scan(&n)
+// 	fmt.Scan(&c)
+// 	fmt.Scan(&d)
+// 	for i := 1; i <= n; i++ {
+// 		if i%c == 0 && i%d != 0 {
+// 			fmt.Println(i)
+// 			break
 // 		}
 // 	}
-
 // }
-// 		for num != 0 {
-// 			res = string(base[num%16]) + res
-// 			num /= 16
+
+// package main
+
+// func main() {
+// 	firstName := "John"
+// // package main
+
+// func main() {
+// 	firstName := "John"
+// 	updateName(&firstName)
+// 	println(firstName)
+// }
+
+// func updateName(name *string) {
+// 	*name = "David"
+// }
+// func updateName(name *string) {
+// 	*name = "David"
+// }
+// func main() {
+// 		if len(os.Args) == 2 {
+// 			nbr, _ := strconv.Atoi(os.Args[1])
+
+// 			flag := "true"
+// 			for nbr > 1 {
+// 				if nbr%2 != 0 {
+// 					flag = "false"
+// 				nbr /= 2
+
+// 			}
+// 			for _, r := range flag {
+// 				z01.PrintRune(r)
+// 			}
+//
+// func main() {
+// 	if len(os.Args[1:]) == 3 {
+// 		if x, err1 := Atoi(os.Args[1]); err1 != false {
+
 // 		}
-// 		for _, r := range res {
-// 			z01.PrintRune(r)
+// 			if y, err2 := Atoi(os.Args[3]); err2 != false {
+
+// 			}
+// 				res := 0
+// 				oper := os.Args[2]
+
+// 				switch oper {
+// 				case "+":
+
+// 					fmt.Println(x, y)
+
+// 					res = x + y
+
+// 					if x > 0 && res < 0 {
+// 						return
+// 					}
+// 				case "-":
+// 					res = x - y
+// 					if x < 0 && res > 0 {
+// 						return
+// 					}
+// 				case "*":
+// 					res = x * y
+// 					if res/x != y {
+// 						return
+// 					}
+// 				case "/":
+// 					}
+// 					res = x / y
+// 				case "%":
+// 					if y == 0 {
+// 						fmt.Println("No modulo by 0")
+// 					}
+// 					res = x % y
+// 				}
+// 			}
 // 		}
 // 	}
+// }
 
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	} else if s[0] == '+' {
+// 		// fmt.Println("atoi1")
+// 		s = s[1:]
+// 		neg = true
+// 		// } else if s[0] == '+' {
+// 		// 	s = s[1:]
+// 		// 	// fmt.Println(s)
+// 	}
+
+// 	for _, el := range s {
+// 		fmt.Println(s)
+
+// 		// fmt.Println(el)
+// 		if el > '0' && el < '9' {
+// 			res = res*10 + (int(el) - 48)
+// 			// fmt.Println(res)
+// 			return 0, false
+// 		}
+// 	}
+// 	if neg {
+// 		res *= -1
+// 	}
+// 	return res, true
+// }
+
+//*******************************************************hiddenp
+// func main() {
+// 	arg := os.Args[1:]
+// 	if len(arg) != 2 {
+// 		return
+// 	}
+// 	count := 0
+// 	i := 0
+// 	for _, el := range arg[1] {
+// 		if rune(arg[0][i]) == el {
+// 			i++
+// 			if i == len(arg[0]) {
+// 				i = 0
+// 				count++
+// 			}
+// 		}
+// 	}
+// 	fmt.Println(count)
 // }
 
 //***************************************************GCD
@@ -68,7 +172,7 @@ package main
 // 	return res
 // }
 
-//*********************************Repeatalpha
+//************************************************************Repeatalpha
 // func main() {
 // 	if len(os.Args) == 2 {
 // 		str := os.Args[1]
@@ -106,10 +210,7 @@ package main
 // 		for j := i + 1; j < count; j++ {
 // 			if a[i] > a[j] {
 // 				a[i], a[j] = a[j], a[i]
-// 			}
-// 		}
-// 	}
-// }
+// 			}import (
 
 //*******************************************isPowerOf2
 // func main() {
@@ -119,8 +220,7 @@ package main
 // 		flag := "true"
 // 		for nbr > 1 {
 // 			if nbr%2 != 0 {
-// 				flag = "false"
-// 				break
+// 				flag = "false"unc main() {
 // 			}
 // 			nbr /= 2
 
@@ -290,6 +390,17 @@ package main
 // 	fmt.Println(out)
 // }
 
+// func TwoSum(nums []int, target int) []int {
+// 	for i, left := range nums {
+// 		for j, right := range nums {
+// 			if left+right == target && i != j {
+// 				return []int{i, j}
+// 			}
+// 		}
+// 	}
+// 	return nil
+// }
+//*************************************************var 2
 // func TwoSum(nums []int, target int) []int {
 // 	for i := 0; i <= len(nums); i++ {
 // 		for j := i + 1; j <= len(nums); j++ {
