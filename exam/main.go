@@ -1,19 +1,9 @@
 package main
 
-// func main() {
-// 	var n, c, d int
-// 	fmt.Scan(&n)
-// 	fmt.Scan(&c)
-// 	fmt.Scan(&d)
-// 	for i := 1; i <= n; i++ {
-// 		if i%c == 0 && i%d != 0 {
-// 			fmt.Println(i)
-// 			break
-// 		}
-// 	}
-// }
-
-// package main
+import (
+	"fmt"
+	"os"
+)
 
 // func main() {
 // 	firstName := "John"
@@ -46,80 +36,75 @@ package main
 // 				z01.PrintRune(r)
 // 			}
 //
-// func main() {
-// 	if len(os.Args[1:]) == 3 {
-// 		if x, err1 := Atoi(os.Args[1]); err1 != false {
+func main() {
+	if len(os.Args) != 4 {
+		return
+	}
+	x, err1 := Atoi(os.Args[1])
+	oper := os.Args[2]
+	y, err2 := Atoi(os.Args[3])
+	res := 0
+	if err1 == false || err2 == false {
+		return
+	}
+	switch oper {
+	case "+":
+		// fmt.Println(x, y)
+		res = x + y
+		if x > 0 && res < 0 {
+			return
+		}
+	case "-":
+		res = x - y
+		if x < 0 && res > 0 {
+			return
+		}
+	case "*":
+		res = x * y
+		if res/x != y {
+			return
+		}
+	case "/":
+		if y == 0 {
+			fmt.Println("No div by 0")
+		}
+		res = x / y
+	case "%":
+		if y == 0 {
+			fmt.Println("No modulo by 0")
+		}
+		res = x % y
+	}
+}
 
-// 		}
-// 			if y, err2 := Atoi(os.Args[3]); err2 != false {
+func Atoi(s string) (int, bool) {
+	var res int
+	neg := false
+	if len(s) == 0 {
+		return 0, false
+	} else if s[0] == '-' {
+		// fmt.Println("atoi1")
+		s = s[1:]
+		neg = true
+		// } else if s[0] == '+' {
+		// 	s = s[1:]
+		// 	// fmt.Println(s)
+	}
 
-// 			}
-// 				res := 0
-// 				oper := os.Args[2]
-
-// 				switch oper {
-// 				case "+":
-
-// 					fmt.Println(x, y)
-
-// 					res = x + y
-
-// 					if x > 0 && res < 0 {
-// 						return
-// 					}
-// 				case "-":
-// 					res = x - y
-// 					if x < 0 && res > 0 {
-// 						return
-// 					}
-// 				case "*":
-// 					res = x * y
-// 					if res/x != y {
-// 						return
-// 					}
-// 				case "/":
-// 					}
-// 					res = x / y
-// 				case "%":
-// 					if y == 0 {
-// 						fmt.Println("No modulo by 0")
-// 					}
-// 					res = x % y
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-// func Atoi(s string) (int, bool) {
-// 	var res int
-// 	neg := false
-// 	if len(s) == 0 {
-// 		return 0, false
-// 	} else if s[0] == '+' {
-// 		// fmt.Println("atoi1")
-// 		s = s[1:]
-// 		neg = true
-// 		// } else if s[0] == '+' {
-// 		// 	s = s[1:]
-// 		// 	// fmt.Println(s)
-// 	}
-
-// 	for _, el := range s {
-// 		fmt.Println(s)
-
-// 		// fmt.Println(el)
-// 		if el > '0' && el < '9' {
-// 			res = res*10 + (int(el) - 48)
-// 			// fmt.Println(res)
-// 			return 0, false
-// 		}
-// 	}
-// 	if neg {
-// 		res *= -1
-// 	}
-// 	return res, true
-// }
+	for _, el := range s {
+		// fmt.Println(s)
+		// fmt.Println(el)
+		if el < '0' || el > '9' {
+			// fmt.Println(res)
+			return 0, false
+		}
+		res = res*10 + (int(el) - 48)
+	}
+	if neg {
+		res *= -1
+	}
+	return res, true
+}
 
 //*******************************************************hiddenp
 // func main() {
