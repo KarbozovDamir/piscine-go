@@ -75,6 +75,8 @@ func main() {
 		}
 		res = x % y
 	}
+	fmt.Println(res)
+	return
 }
 
 func Atoi(s string) (int, bool) {
