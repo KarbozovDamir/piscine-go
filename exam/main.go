@@ -1,112 +1,165 @@
 package main
-
-import (
-	"fmt"
-	"os"
-)
-
+//****************************************************lastwvar1
 // func main() {
-// 	firstName := "John"
-// // package main
-
+	// 	if len(os.Args) == 2 {
+	// 		word := ""
+	// 		lastWord := ""
+	// 		for _, el := range os.Args[1] + " " {
+	// 			if el == ' ' {
+	// 				if len(word) > 0 {
+	// 					lastWord = word
+	// 				}
+	// 				word = ""
+	// 			} else {
+	// 				word += string(el)
+	// 			}
+	// 		}
+	
+	// 		if lastWord == "" {
+	// 			return
+	// 		}
+	// 		for _, j := range word {
+	// 			z01.PrintRune(j)
+	// 		}
+	// 		z01.PrintRune(10)
+	// 	}
+	// }
+	
+//**********************************************************lastwvar2
 // func main() {
-// 	firstName := "John"
-// 	updateName(&firstName)
-// 	println(firstName)
-// }
+// 	if len(os.Args) == 2 {
+// 		arg := os.Args[1]
+// 		if arg == "" {
+// 			return
+// 		}
+// 		word := ""
+// 		lastWord := ""
+// 		for _, el := range arg + " " {
+// 			if el == ' ' {
+// 				if word != "" {
+// 					lastWord = word
+// 				}
+// 				word = ""
 
-// func updateName(name *string) {
-// 	*name = "David"
-// }
-// func updateName(name *string) {
-// 	*name = "David"
-// }
-// func main() {
-// 		if len(os.Args) == 2 {
-// 			nbr, _ := strconv.Atoi(os.Args[1])
-
-// 			flag := "true"
-// 			for nbr > 1 {
-// 				if nbr%2 != 0 {
-// 					flag = "false"
-// 				nbr /= 2
-
+// 			} else {
+// 				word = string(el)
 // 			}
-// 			for _, r := range flag {
-// 				z01.PrintRune(r)
+// 		}
+// 		// if word != "" {
+// 		// 	lastWord = word
+// 		// }
+// 		for _, j := range lastWord {
+// 			z01.PrintRune(j)
+// 		}
+// 		if lastWord != "" {
+// 			z01.PrintRune(10)
+// 		}
+// 	}
+// }
+//*********************************************************lastwvar3
+// if len(os.Args) == 2 {
+// 	lastWord := ""
+// 	for i := len(os.Args[1]) - 1; i >= 0; i-- {
+// 		if os.Args[1][i] == ' ' {
+// 			if lastWord != "" {
+// 				break
 // 			}
-//
+// 		} else {
+// 			lastWord += string(os.Args[1][i])
+// 		}
+// 	}
+// 	if lastWord == "" {
+// 		return
+// 	}
+// 	for i := len(lastWord) - 1; i >= 0; i-- {
+// 		z01.PrintRune(rune(lastWord[i]))
+// 	}
+// } else {
+// 	return
+// }
+// z01.PrintRune(10)
+//************************************************************isPowerof2
 func main() {
-	if len(os.Args) != 4 {
-		return
-	}
-	x, err1 := Atoi(os.Args[1])
-	oper := os.Args[2]
-	y, err2 := Atoi(os.Args[3])
-	res := 0
-	if err1 == false || err2 == false {
-		return
-	}
-	switch oper {
-	case "+":
-		// fmt.Println(x, y)
-		res = x + y
-		if x > 0 && res < 0 {
-			return
-		}
-	case "-":
-		res = x - y
-		if x < 0 && res > 0 {
-			return
-		}
-	case "*":
-		res = x * y
-		if res/x != y {
-			return
-		}
-	case "/":
-		if y == 0 {
-			fmt.Println("No div by 0")
-		}
-		res = x / y
-	case "%":
-		if y == 0 {
-			fmt.Println("No modulo by 0")
-		}
-		res = x % y
-	}
-	fmt.Println(res)
-	return
-}
+		if len(os.Args) == 2 {
+			nbr, _ := strconv.Atoi(os.Args[1])
+			flag := "true"
+			for nbr > 1 {
+				if nbr%2 != 0 {
+					flag = "false"
+				nbr /= 2
 
-func Atoi(s string) (int, bool) {
-	var res int
-	neg := false
-	if len(s) == 0 {
-		return 0, false
-	} else if s[0] == '-' {
-		// fmt.Println("atoi1")
-		s = s[1:]
-		neg = true
-		// } else if s[0] == '+' {
-		// 	s = s[1:]
-		// 	// fmt.Println(s)
-	}
-
-	for _, el := range s {
-		// fmt.Println(s)
-		// fmt.Println(el)
-		if el < '0' || el > '9' {
-			// fmt.Println(res)
-			return 0, false
+			}
+			for _, r := range flag {
+				z01.PrintRune(r)
+			}
 		}
-		res = res*10 + (int(el) - 48)
 	}
-	if neg {
-		res *= -1
-	}
-	return res, true
 }
+//**************************************doop for e
+// func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	x, err1 := Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := Atoi(os.Args[3])
+// 	res := 0
+// 	if err1 == false || err2 == false {
+// 		return
+// 	}
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x > 0 && res < 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < 0 && res > 0 {
+// 			return
+// 		}
+// 	case "*":
+// 		res = x * y
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No div by 0")
+// 		}
+// 		res = x / y
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 		}
+// 		res = x % y
+// 	}
+// 	fmt.Println(res)
+// 	return
+// }
+
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	} else if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
+
+// 	for _, el := range s {
+// 		if el < '0' || el > '9' {
+
+// 			return 0, false
+// 		}
+// 		res = res*10 + (int(el) - 48)
+// 	}
+// 	if neg {
+// 		res *= -1
+// 	}
+// 	return res, true
+// }
 
 //*******************************************************hiddenp
 // func main() {
@@ -333,9 +386,22 @@ func Atoi(s string) (int, bool) {
 // func Itoa(n int) (res string) {
 // 	if n > 0 {
 // 		res = string(n%10+48) + res
-
-// 		n /= 10+, -, /, *, %
-// 	}
+func main() {
+	// 	case1 := []int{1, 2, 3, 4}
+	// 	out := TwoSum(case1, 5)
+	// 	fmt.Println(out)
+	// }
+	
+	// func TwoSum(nums []int, target int) []int {
+	// 	for i, left := range nums {
+	// 		for j, right := range nums {
+	// 			if left+right == target && i != j {
+	// 				return []int{i, j}
+	// 			}
+	// 		}
+	// 	}
+	// 	return nil
+	// }
 // 	return
 // }
 
@@ -387,6 +453,7 @@ func Atoi(s string) (int, bool) {
 // 	}
 // 	return nil
 // }
+
 //*************************************************var 2
 // func TwoSum(nums []int, target int) []int {
 // 	for i := 0; i <= len(nums); i++ {
