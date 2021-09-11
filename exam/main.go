@@ -2,47 +2,155 @@ package main
 
 import (
 	"os"
-	"strconv"
 
 	"github.com/01-edu/z01"
 )
 
-//printchessboard
-func main() {
-	if len(os.Args) != 3 {
-		error()
-		return
-	}
-	x, err := strconv.Atoi(os.Args[1])
-	y, err2 := strconv.Atoi(os.Args[2])
+//***********************ИНТРА
+/*func main() {
+	args := os.Args[1:]
 
-	if err != nil || err2 != nil {
-		error()
-		return
-	}
-	if x == 0 || y == 0 {
-		error()
-		return
-	}
-	for i := 1; i <= y; i++ {
-		for j := 1; j <= x; j++ {
-			if (i+j)%2 == 0 {
-				z01.PrintRune('#')
-			} else {
-				z01.PrintRune(' ')
+	if len(args) == 2 {
+		arr := []rune{}
+
+		for _, x := range args[0] {
+			for y := 0; y < len(args[1]); y++ {
+				if byte(x) == args[1][y] && isIn(x, arr) {
+					arr = append(arr, x)
+				}
 			}
 		}
+
+		for _, x := range arr {
+			z01.PrintRune(x)
+		}
+		z01.PrintRune('\n')
+
+	} else {
 		z01.PrintRune('\n')
 	}
-}
-func error() {
-	for _, el := range "Error" {
-		z01.PrintRune(el)
-	}
-	z01.PrintRune(10)
+	// return
+
 }
 
+func isIn(char rune, arr []rune) bool {
+	for _, x := range arr {
+		if x == char {
+			return false
+		}
+	}
+	return true
+}
+*/
+//**********************************repeatAlpha
+func main() {
+
+	if len(os.Args) != 2 {
+		return
+	}
+
+	str := os.Args[1]
+
+	if str == "" {
+		z01.PrintRune('\n')
+		return
+	}
+
+	for _, r := range str {
+		if r >= 'A' && r <= 'Z' {
+			for i := 0; i <= int(r)-'A'; i++ {
+				z01.PrintRune(r)
+			}
+		}
+		if r >= 'a' && r <= 'z' {
+			for i := 0; i <= int(r)-'a'; i++ {
+				z01.PrintRune(r)
+			}
+		} else {
+			z01.PrintRune(r)
+		}
+	}
+	z01.PrintRune('\n')
+	// }
+}
+
+//********************************Unio
+// func main() {
+// 	if len(os.Args) == 3 {
+// 		mp := map[rune]int{}
+// 		for _, el := range os.Args[1] + os.Args[2] {
+// 			if mp[el] < 1 {
+// 				mp[el]++
+// 				z01.PrintRune(el)
+// 			}
+// 		}
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+//*******************************************var 2
+// func main() {
+// 	if len(os.Args[1:]) != 2 {
+// 		z01.PrintRune('0')
+// 		return
+// 	}
+
+// 	s1 := os.Args[1]
+// 	s2 := os.Args[2]
+// 	s1 += s2
+// 	res := ""
+// 	delete := make(map[rune]bool)
+// 	for _, ch := range s1 {
+// 		if delete[ch] == false {
+// 			res += string(ch)
+// 			delete[ch] = true
+// 		}
+// 	}
+// 	for _, el := range os.Args[1] {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+
+// }
+
+//***********************************************************************printchessboard
+// func main() {
+// 	if len(os.Args) != 3 {
+// 		error()
+// 		return
+// 	}
+// 	x, err := strconv.Atoi(os.Args[1])
+// 	y, err2 := strconv.Atoi(os.Args[2])
+
+// 	if err != nil || err2 != nil {
+// 		error()
+// 		return
+// 	}
+// 	if x == 0 || y == 0 {
+// 		error()
+// 		return
+// 	}
+// 	for i := 1; i <= y; i++ {
+// 		for j := 1; j <= x; j++ {
+// 			if (i+j)%2 == 0 {
+// 				z01.PrintRune('#')
+// 			} else {
+// 				z01.PrintRune(' ')
+// 			}
+// 		}
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func error() {
+// 	for _, el := range "Error" {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+// }
+
 //*******************************************************hiddenp
+
 // func main() {
 // 	arg := os.Args[1:]
 // 	if len(arg) != 2 {
