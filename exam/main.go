@@ -6,7 +6,7 @@ import (
 	"github.com/01-edu/z01"
 )
 
-//***********************ИНТРА
+//***********************inter duplicate
 /*func main() {
 	args := os.Args[1:]
 
@@ -48,30 +48,24 @@ func main() {
 	if len(os.Args) != 2 {
 		return
 	}
-
-	str := os.Args[1]
-
-	if str == "" {
-		z01.PrintRune('\n')
+	args := os.Args[1]
+	if args == "" {
+		z01.PrintRune(10)
 		return
 	}
-
-	for _, r := range str {
-		if r >= 'A' && r <= 'Z' {
-			for i := 0; i <= int(r)-'A'; i++ {
-				z01.PrintRune(r)
+	for _, el := range args {
+		if el >= 'A' && el <= 'Z' {
+			for i := 0; i <= int(el)-'A'; i++ {
+				z01.PrintRune(el)
 			}
 		}
-		if r >= 'a' && r <= 'z' {
-			for i := 0; i <= int(r)-'a'; i++ {
-				z01.PrintRune(r)
+		if el >= 'a' && el <= 'z' {
+			for i := 0; i <= int(el)-'a'; i++ {
+				z01.PrintRune(el)
 			}
-		} else {
-			z01.PrintRune(r)
 		}
 	}
-	z01.PrintRune('\n')
-	// }
+	z01.PrintRune(10)
 }
 
 //********************************Unio
