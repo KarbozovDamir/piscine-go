@@ -2,17 +2,113 @@ package main
 
 import (
 	"os"
+	"strconv"
 
 	"github.com/01-edu/z01"
 )
 
+func main() {
+	if len(os.Args[1:]) != 2 {
+		return
+	}
+	n1, _ := strconv.Atoi(os.Args[1])
+	n2, _ := strconv.Atoi(os.Args[2])
+
+	for i := 1; i <= n1; i++ {
+		for j := 1; j <= n2; j++ {
+			if i%2 == 1 && j%2 == 1 {
+				z01.PrintRune('#')
+			} else if i%2 == 1 && j%2 == 0 {
+				z01.PrintRune(' ')
+			} else if i%2 == 0 && j%2 == 1 {
+				z01.PrintRune(' ')
+			} else {
+				z01.PrintRune('#')
+			}
+		}
+		z01.PrintRune('\n')
+	}
+}
+
+//****************************************hiddenp
+// counter := 0
+// 	if len(os.Args) != 3 {
+// 		return
+// 	}
+// 	for _, v := range os.Args[2] {
+// 		if len(os.Args[1]) == counter {
+// 			z01.PrintRune('1')
+// 			z01.PrintRune(10)
+// 			return
+// 		}
+// 		if v == rune(os.Args[1][counter]) {
+// 			counter++
+// 		}
+// 	}
+// 	z01.PrintRune('0')
+// 	z01.PrintRune(10)
+//*************************************hex
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		base := "0123456789abcdef"
+// 		res := ""
+// 		num, err := strconv.Atoi(os.Args[1])
+// 		if err != nil {
+// 			os.Exit(0)
+// 		}
+// 		for num != 0 {
+// 			res = string(base[num%16]) + res
+// 			num /= 16
+// 		}
+// 		if res == "" {
+// 			os.Stdout.WriteString("ERROR")
+// 		}
+// 		os.Stdout.WriteString(res + "\n")
+// 	}
+// }
+
+//********************************************************union
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		z01.PrintRune(10)
+// 		z01.PrintRune(10)
+// 		return
+// 	}
+
+// 	if len(os.Args) == 3 {
+// 		mp := map[rune]int{}
+// 		for _, el := range os.Args[1] + os.Args[2] {
+// 			if mp[el] < 1 {
+// 				mp[el]++
+// 				z01.PrintRune(el)
+// 			}
+// 		}
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+// func print(s string) {
+// 	for _, el := range s {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+// if len(os.Args) < 1 {
+// 	z01.PrintRune('\n')
+// 	return
+// }
+// args := os.Args[1]
+// if len(args) < 1 {
+// 	z01.PrintRune('\n')
+// 	return
+// }
+
 //***********************inter duplicate
 /*func main() {
 	args := os.Args[1:]
-
 	if len(args) == 2 {
 		arr := []rune{}
-
 		for _, x := range args[0] {
 			for y := 0; y < len(args[1]); y++ {
 				if byte(x) == args[1][y] && isIn(x, arr) {
@@ -20,17 +116,14 @@ import (
 				}
 			}
 		}
-
 		for _, x := range arr {
 			z01.PrintRune(x)
 		}
 		z01.PrintRune('\n')
-
 	} else {
 		z01.PrintRune('\n')
 	}
 	// return
-
 }
 
 func isIn(char rune, arr []rune) bool {
@@ -43,33 +136,25 @@ func isIn(char rune, arr []rune) bool {
 }
 */
 //**********************************repeatAlpha
-func main() {
-
-	if len(os.Args) != 2 {
-		return
-	}
-	args := os.Args[1]
-	if args == "" {
-		z01.PrintRune(10)
-		return
-	}
-	for _, el := range args {
-		if el >= 'A' && el <= 'Z' {
-			for i := 0; i <= int(el)-'A'; i++ {
-				z01.PrintRune(el)
-			}
-		}
-		if el >= 'a' && el <= 'z' {
-			for i := 0; i <= int(el)-'a'; i++ {
-				z01.PrintRune(el)
-			}
-		}
-	}
-	z01.PrintRune(10)
-}
-
-//********************************Unio
 // func main() {
+
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	args := os.Args[1]
+// 	if args == "" {
+// 		z01.PrintRune(10)
+// 		return
+// 	}
+// 	for _, el := range args {
+// 		if el >= 'A' && el <= 'Z' {
+// 			for i := 0; i <= int(el)-'A'; i++ {
+// 				z01.PrintRune(el)
+// 			}
+// 		}
+// 		if el >= 'a' && el <= 'z' {
+// 			for i := 0; i <= int(el)-'a'; i++ {
+// 				z01.PrintRune(el)
 // 	if len(os.Args) == 3 {
 // 		mp := map[rune]int{}
 // 		for _, el := range os.Args[1] + os.Args[2] {
@@ -104,7 +189,6 @@ func main() {
 // 		z01.PrintRune(el)
 // 	}
 // 	z01.PrintRune(10)
-
 // }
 
 //***********************************************************************printchessboard
@@ -122,9 +206,11 @@ func main() {
 // 	}
 // 	if x == 0 || y == 0 {
 // 		error()
-// 		return
-// 	}
-// 	for i := 1; i <= y; i++ {
+// 		returnfor _, el := range flag {
+// 	z01.PrintRune(el)
+// }
+// z01.PrintRune(10)
+// return
 // 		for j := 1; j <= x; j++ {
 // 			if (i+j)%2 == 0 {
 // 				z01.PrintRune('#')
@@ -174,11 +260,11 @@ func main() {
 // 				flag = "false"
 // 				n /= 2
 // 			}
-// 			for _, el := range flag {
-// 				z01.PrintRune(el)
-// 			}
-// 			z01.PrintRune(10)
-// 			return
+// for _, el := range flag {
+// 	z01.PrintRune(el)
+// }
+// z01.PrintRune(10)
+// return
 // 		}
 // 	}
 // }
@@ -632,25 +718,6 @@ $
 // 		}
 // 	}
 // }
-
-//********************Sortworder
-// func main() {
-// 	result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
-// 	SortWordArr(result)
-
-// 	fmt.Println(result)
-// }
-
-// func SortWordArr(a []string) {
-// 	count := 0
-// 	for range a {
-// 		count++
-// 	}
-// 	for i := 0; i < count; i++ {
-// 		for j := i + 1; j < count; j++ {
-// 			if a[i] > a[j] {
-// 				a[i], a[j] = a[j], a[i]
-// 			}import (
 
 //*******************************************isPowerOf2
 // func main() {
@@ -1256,7 +1323,7 @@ $
 // 			} else {
 // 				z01.PrintRune(el)
 // 			}
-// 		}go run . "abc"
+// 		}
 // }
 //*****************************************Tabmult
 // import (
