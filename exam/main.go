@@ -1,41 +1,124 @@
 package main
 
-import (
-	"os"
-	"strconv"
+import "fmt"
 
-	"github.com/01-edu/z01"
-)
-
+// *********************************************Split
 func main() {
-	if len(os.Args[1:]) != 2 {
-		return
-	}
-	n1, _ := strconv.Atoi(os.Args[1])
-	n2, _ := strconv.Atoi(os.Args[2])
-
-	for i := 1; i <= n1; i++ {
-		for j := 1; j <= n2; j++ {
-			if i%2 == 1 && j%2 == 1 {
-				z01.PrintRune('#')
-			} else if i%2 == 1 && j%2 == 0 {
-				z01.PrintRune(' ')
-			} else if i%2 == 0 && j%2 == 1 {
-				z01.PrintRune(' ')
-			} else {
-				z01.PrintRune('#')
-			}
-		}
-		z01.PrintRune('\n')
-	}
+	s := "HelloHAhowHAareHAyou?"
+	fmt.Printf("%#v\n", Split(s, "HA"))
 }
+
+func Split(s, sep string) []string {
+	prev := 0 // H_..o
+	ans := make([]string, 0)
+	for i := 0; i < len(s)-len(sep); i++ {
+		if s[i:i+len(sep)] == sep {
+			ans = append(ans, s[prev:i])
+			i += len(sep) // for skip HA
+			prev = i      // FOR START AFTER SKIP HA
+		}
+	}
+	if prev != len(s)-1 {
+		ans = append(ans, s[prev:])
+	}
+	return ans
+}
+
+// *****************************************************union variant - 0
+// func main() {
+// 	args := os.Args[1:]
+// 	if len(args) != 2 {
+// 		fmt.Println()
+// 		return
+// 	}
+// 	ans := ""
+// 	for _, k := range args[0] + args[1] {
+// 		found := false
+// 		for _, v := range ans {
+// 			if k == v {
+// 				found = true
+// 				break
+// 			}
+// 		}
+// 		if !found {
+// 			ans += string(k)
+// 		}
+// 	}
+// 	fmt.Print(ans)
+// }
+
+// *****************************************************union variant - 1
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		z01.PrintRune(10)
+// 		z01.PrintRune(10)
+// 		return
+// 	}
+
+// 	if len(os.Args) == 3 {
+// 		mp := map[rune]int{}
+// 		for _, el := range os.Args[1] {
+// 			for _, el2 := range os.Args[2] {
+// 				if el == el2 && mp[el] < 1 {
+// 					mp[el]++
+// 					z01.PrintRune(el)
+// 				}
+// 			}
+// 		}
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+// *****************************************************union variant - 3
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		z01.PrintRune(10)
+// 		z01.PrintRune(10)
+// 		return
+// 	}
+
+// 	if len(os.Args) == 3 {
+// 		mp := map[rune]int{}
+// 		for _, el := range os.Args[1] {
+// 			for _, el2 := range os.Args[2] {
+// 				if el == el2 && mp[el] < 1 {
+// 					mp[el]++
+// 					z01.PrintRune(el)
+// 				}
+// 			}
+// 		}
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+//*************************************chess
+// func main() {
+// 	if len(os.Args[1:]) != 2 {
+// 		return
+// 	}
+//func Split(s, sep string) []string {
+
+// }
+// 	for i := 1; i <= n1; i++ {
+// 		for j := 1; j <= n2; j++ {
+// 			if i%2 == 1 && j%2 == 1 {
+// 				z01.PrintRune('#')
+// 			} else if i%2 == 1 && j%2 == 0 {
+// 				z01.PrintRune(' ')
+// 			} else if i%2 == 0 && j%2 == 1 {
+// 				z01.PrintRune(' ')
+// 			} else {
+// 				z01.PrintRune('#')
+// 			}
+// 		}
+// 		z01.PrintRune('\n')
+// 	}
+// }
 
 //****************************************hiddenp
 // counter := 0
 // 	if len(os.Args) != 3 {
-// 		return
-// 	}
-// 	for _, v := range os.Args[2] {
+// 		returngithub.com/01-edu/go-tests/lib/challenge":= range os.Args[2] {
 // 		if len(os.Args[1]) == counter {
 // 			z01.PrintRune('1')
 // 			z01.PrintRune(10)
@@ -65,43 +148,6 @@ func main() {
 // 		}
 // 		os.Stdout.WriteString(res + "\n")
 // 	}
-// }
-
-//********************************************************union
-// func main() {
-// 	if len(os.Args) == 2 {
-// 		z01.PrintRune(10)
-// 		z01.PrintRune(10)
-// 		return
-// 	}
-
-// 	if len(os.Args) == 3 {
-// 		mp := map[rune]int{}
-// 		for _, el := range os.Args[1] + os.Args[2] {
-// 			if mp[el] < 1 {
-// 				mp[el]++
-// 				z01.PrintRune(el)
-// 			}
-// 		}
-// 	}
-// 	z01.PrintRune(10)
-// }
-
-// func print(s string) {
-// 	for _, el := range s {
-// 		z01.PrintRune(el)
-// 	}
-// 	z01.PrintRune(10)
-// }
-
-// if len(os.Args) < 1 {
-// 	z01.PrintRune('\n')
-// 	return
-// }
-// args := os.Args[1]
-// if len(args) < 1 {
-// 	z01.PrintRune('\n')
-// 	return
 // }
 
 //***********************inter duplicate
