@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
-
 // *********************************************Split
 // func main() {
 // 	s := "HelloHAhowHAareHAyou?"
@@ -416,97 +411,7 @@ func isIn(char rune, arr []rune) bool {
 // 		os.Stdout.WriteString(res + "\n")
 // 	}
 
-// func main() {
-// 	if len(os.Args) != 4 {
-// 		return
-// 	}
-
-// 	x, err1 := Atoi(os.Args[1])
-// 	oper := os.Args[2]
-// 	y, err2 := Atoi(os.Args[3])
-// 	res := 0
-
-// 	if err1 == false || err2 == false {
-// 		return
-// 	}
-// 	switch oper {
-// 	case "+":
-// 		res = x + y
-// 		if x > 0 && res < 0 {
-// 			return
-// 		}
-// 	case "-":
-// 		res = x - y
-// 		// if x < 0 && res > 0 {
-// 		// 	return
-// 		// }
-// 		if x > 0 && res > 0 {
-// 			return
-// 		}
-// 	case "*":
-// 		res = x * y
-// 		if res/x != y {
-// 			return
-// 		}
-// 	case "/":
-// 		if y == 0 {
-// 			fmt.Println("No div by 0")la
-// 			fmt.Println("No mod by 0")
-// 			return
-// 		}
-//if y == 0 {
-//fmt.Println("No mod by 0")
-//}
-// 		res = x % y
-// 	default:
-// 		return
-// 	}
-// 	fmt.Println(res)
-// }
-
-// func Atoi(s string) (int, bool) {
-// 	var res int = 0
-// 	neg := false
-// 	if len(s) == 0 {
-// 		return 0, false
-// 	}
-
-// 	if s[0] == '-' {
-// 		s = s[1:]
-// 		neg = true
-// 	}
-// 	for _, el := range s {
-// 		if el < '0' || el > '9' {
-// 			return 0, false
-// 		}
-// 		res = res*10 + int(el) - 48
-// 	}
-// 	if neg {
-// 		res *= -1
-// 	}
-// 	return res, true
-
-// }
-/*
-$ go run .
-$ go run . 1 + 1 | cat -e
-2$
-$ go run . hello + 1
-$ go run . 1 p 1
-$ go run . 1 / 0 | cat -e
-No division by 0$
-$ go run . 1 % 0 | cat -e
-No modulo by 0$
-$ go run . 9223372036854775807 + 1
-$ go run . -9223372036854775809 - 3
-$ go run . 9223372036854775807 "*" 3
-$ go run . 1 "*" 1
-1
-$ go run . 1 "*" -1
--1
-$
-*/
-//*********************************************
+//*********************************************UNION Alibek
 // 	if len(os.Args[1:]) == 0 {
 // 		fmt.Print("\n")
 // 		return
@@ -612,74 +517,74 @@ $
 // z01.PrintRune(10)
 
 //**************************************doop
-func main() {
-	if len(os.Args) != 4 {
-		return
-	}
-	x, err1 := Atoi(os.Args[1])
-	oper := os.Args[2]
-	y, err2 := Atoi(os.Args[3])
-	res := 0
-	if err1 == false || err2 == false {
-		return
-	}
-	switch oper {
-	case "+":
-		res = x + y
-		if x > 0 && res < 0 {
-			return
-		}
-	case "-":
-		res = x - y
-		if x < 0 && res > 0 {
-			return
-		}
-	case "*":
-		res = x * y
-		if res/x != y {
-			return
-		}
-	case "/":
-		if y == 0 {
-			fmt.Println("No div by 0")
-			return
-		}
-		res = x / y
-	case "%":
-		if y == 0 {
-			fmt.Println("No modulo by 0")
-			return
-		}
-		res = x % y
-	default:
-		return
-	}
-	fmt.Println(res)
-}
+// func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	x, err1 := Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := Atoi(os.Args[3])
+// 	res := 0
+// 	if err1 == false || err2 == false {
+// 		return
+// 	}
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x > 0 && res < 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < 0 && res > 0 {
+// 			return
+// 		}
+// 	case "*":
+// 		res = x * y
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No div by 0")
+// 			return
+// 		}
+// 		res = x / y
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 			return
+// 		}
+// 		res = x % y
+// 	default:
+// 		return
+// 	}
+// 	fmt.Println(res)
+// }
 
-// Atoi for convert from string to int with numeric
-func Atoi(s string) (int, bool) {
-	var res int
-	neg := false
-	if len(s) == 0 {
-		return 0, false
-	} else if s[0] == '-' {
-		s = s[1:]
-		neg = true
-	}
+// // Atoi for convert from string to int with numeric
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	} else if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
 
-	for _, el := range s {
-		if el < '0' || el > '9' {
+// 	for _, el := range s {
+// 		if el < '0' || el > '9' {
 
-			return 0, false
-		}
-		res = res*10 + (int(el) - 48)
-	}
-	if neg {
-		res *= -1
-	}
-	return res, true
-}
+// 			return 0, false
+// 		}
+// 		res = res*10 + (int(el) - 48)
+// 	}
+// 	if neg {
+// 		res *= -1
+// 	}
+// 	return res, true
+// }
 
 //*******************************************************hiddenp
 // func main() {
@@ -1040,6 +945,26 @@ func Atoi(s string) (int, bool) {
 // }
 
 //*******************************************************doop
+/*
+$ go run .
+$ go run . 1 + 1 | cat -e
+2$
+$ go run . hello + 1
+$ go run . 1 p 1
+$ go run . 1 / 0 | cat -e
+No division by 0$
+$ go run . 1 % 0 | cat -e
+No modulo by 0$
+$ go run . 9223372036854775807 + 1
+$ go run . -9223372036854775809 - 3
+$ go run . 9223372036854775807 "*" 3
+$ go run . 1 "*" 1
+1
+$ go run . 1 "*" -1
+-1
+$
+*/
+
 // import (
 // 	"fmt"
 // 	"os"
@@ -1147,21 +1072,8 @@ func Atoi(s string) (int, bool) {
 // 	return res, false // - > если ошибки нет
 // }
 
-// Atoi : convert from string to int
-// func Checker(b string) bool {
-// 	checker := true
-// 	if b != "/" && b != "%" && b != "*" && b != "+" && b != "-" {
-// 		checker = false
-// 	}
-// 	return checker
-// }
-
 //*********************************************Alphamirror
-// import (
-// 	"os"
 
-// 	"github.com/01-edu/z01"
-// )
 //********************************first variant
 // func main() {
 // 	if len(os.Args) == 2 {
@@ -1289,11 +1201,7 @@ func Atoi(s string) (int, bool) {
 // }
 
 //*************************************************>>>ROT13
-// import (
-// 	"os"
 
-// 	"github.com/01-edu/z01"
-// )
 //***********************************************first var
 
 // if len(os.Args) == 2 {
@@ -1314,7 +1222,7 @@ func Atoi(s string) (int, bool) {
 // }
 // z01.PrintRune(10)
 // }
-//*************************************************************
+//********************************************2var
 // func main() {
 // 	args := os.Args[1:]
 // 	res := ""
@@ -1338,7 +1246,7 @@ func Atoi(s string) (int, bool) {
 // 	z01.PrintRune(10)
 // }
 
-//*************************1 var rot13
+//*************************3 var rot13
 
 // func main() {
 // 	if len(os.Args) == 2 {
