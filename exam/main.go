@@ -1,28 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // *********************************************Split
-func main() {
-	s := "HelloHAhowHAareHAyou?"
-	fmt.Printf("%#v\n", Split(s, "HA"))
-}
+// func main() {
+// 	s := "HelloHAhowHAareHAyou?"
+// 	fmt.Printf("%#v\n", Split(s, "HA"))
+// }
 
-func Split(s, sep string) []string {
-	prev := 0 // H_..o
-	ans := make([]string, 0)
-	for i := 0; i < len(s)-len(sep); i++ {
-		if s[i:i+len(sep)] == sep {
-			ans = append(ans, s[prev:i])
-			i += len(sep) // for skip HA
-			prev = i      // FOR START AFTER SKIP HA
-		}
-	}
-	if prev != len(s)-1 {
-		ans = append(ans, s[prev:])
-	}
-	return ans
-}
+// func Split(s, sep string) []string {
+// 	prev := 0 // H_..o
+// 	ans := make([]string, 0)
+// 	for i := 0; i < len(s)-len(sep); i++ {
+// 		if s[i:i+len(sep)] == sep {
+// 			ans = append(ans, s[prev:i])
+// 			i += len(sep) // for skip HA
+// 			prev = i      // FOR START AFTER SKIP HA
+// 		}
+// 	}
+// 	if prev != len(s)-1 {
+// 		ans = append(ans, s[prev:])
+// 	}
+// 	return ans
+// }
 
 // *****************************************************union variant - 0
 // func main() {
@@ -48,28 +51,6 @@ func Split(s, sep string) []string {
 // }
 
 // *****************************************************union variant - 1
-// func main() {
-// 	if len(os.Args) == 2 {
-// 		z01.PrintRune(10)
-// 		z01.PrintRune(10)
-// 		return
-// 	}
-
-// 	if len(os.Args) == 3 {
-// 		mp := map[rune]int{}
-// 		for _, el := range os.Args[1] {
-// 			for _, el2 := range os.Args[2] {
-// 				if el == el2 && mp[el] < 1 {
-// 					mp[el]++
-// 					z01.PrintRune(el)
-// 				}
-// 			}
-// 		}
-// 	}
-// 	z01.PrintRune(10)
-// }
-
-// *****************************************************union variant - 3
 // func main() {
 // 	if len(os.Args) == 2 {
 // 		z01.PrintRune(10)
@@ -630,71 +611,75 @@ $
 // }
 // z01.PrintRune(10)
 
-//**************************************doop for e
-// func main() {
-// 	if len(os.Args) != 4 {
-// 		return
-// 	}
-// 	x, err1 := Atoi(os.Args[1])
-// 	oper := os.Args[2]
-// 	y, err2 := Atoi(os.Args[3])
-// 	res := 0
-// 	if err1 == false || err2 == false {
-// 		return
-// 	}
-// 	switch oper {
-// 	case "+":
-// 		res = x + y
-// 		if x > 0 && res < 0 {
-// 			return
-// 		}
-// 	case "-":
-// 		res = x - y
-// 		if x < 0 && res > 0 {
-// 			return
-// 		}
-// 	case "*":
-// 		res = x * y
-// 		if res/x != y {
-// 			return
-// 		}
-// 	case "/":
-// 		if y == 0 {
-// 			fmt.Println("No div by 0")
-// 		}
-// 		res = x / y
-// 	case "%":
-// 		if y == 0 {
-// 			fmt.Println("No modulo by 0")
-// 		}
-// 		res = x % y
-// 	}
-// 	fmt.Println(res)
-// 	return
-// }
+//**************************************doop
+func main() {
+	if len(os.Args) != 4 {
+		return
+	}
+	x, err1 := Atoi(os.Args[1])
+	oper := os.Args[2]
+	y, err2 := Atoi(os.Args[3])
+	res := 0
+	if err1 == false || err2 == false {
+		return
+	}
+	switch oper {
+	case "+":
+		res = x + y
+		if x > 0 && res < 0 {
+			return
+		}
+	case "-":
+		res = x - y
+		if x < 0 && res > 0 {
+			return
+		}
+	case "*":
+		res = x * y
+		if res/x != y {
+			return
+		}
+	case "/":
+		if y == 0 {
+			fmt.Println("No div by 0")
+			return
+		}
+		res = x / y
+	case "%":
+		if y == 0 {
+			fmt.Println("No modulo by 0")
+			return
+		}
+		res = x % y
+	default:
+		return
+	}
+	fmt.Println(res)
+}
 
-// func Atoi(s string) (int, bool) {
-// 	var res int
-// 	neg := false
-// 	if len(s) == 0 {
-// 		return 0, false
-// 	} else if s[0] == '-' {
-// 		s = s[1:]
-// 		neg = true
-// 	}
+// Atoi for convert from string to int with numeric
+func Atoi(s string) (int, bool) {
+	var res int
+	neg := false
+	if len(s) == 0 {
+		return 0, false
+	} else if s[0] == '-' {
+		s = s[1:]
+		neg = true
+	}
 
-// 	for _, el := range s {
-// 		if el < '0' || el > '9' {
+	for _, el := range s {
+		if el < '0' || el > '9' {
 
-// 			return 0, false
-// 		}
-// 		res = res*10 + (int(el) - 48)
-// 	}
-// 	if neg {
-// 		res *= -1
-// 	}
-// 	return res, true
-// }
+			return 0, false
+		}
+		res = res*10 + (int(el) - 48)
+	}
+	if neg {
+		res *= -1
+	}
+	return res, true
+}
 
 //*******************************************************hiddenp
 // func main() {
