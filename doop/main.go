@@ -1,289 +1,349 @@
 package main
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/01-edu/z01"
 )
 
-func IsNumeric(str string) bool {
-	if str == "" {
-		return false
-	}
-	if str[0] == '-' || str[0] == '+' {
-		str = str[1:]
-	}
-	for _, s := range str {
-		if s < 48 || s > 57 {
-			return false
-		}
-	}
-	return true
-}
-
-func PrintRes(res int) {
-	lngth := 1
-	printNum := res
-	if res >= -9223372036854775808 && res <= 9223372036854775807 {
-		if res > 0 {
-			for lngth < res/10 {
-				lngth *= 10
-			}
-			for lngth > 0 {
-				printNum = res
-				z01.PrintRune(rune((printNum/lngth)%10) + 48)
-				lngth /= 10
-			}
-		}
-		if res < 0 {
-			res *= -1
-			z01.PrintRune('-')
-			for lngth < res/10 {
-				lngth *= 10
-			}
-			for lngth > 0 {
-				printNum = res
-				z01.PrintRune(rune((printNum/lngth)%10) + 48)
-				lngth /= 10
-			}
-		}
-	} else {
-		z01.PrintRune('0')
-	}
-	z01.PrintRune('\n')
-}
-
-func Atoi(s string) (int, bool) {
-	max := []byte{'9', '2', '2', '3', '3', '7', '2', '0', '3', '6', '8', '5', '4', '7', '7', '5', '8', '0', '7'}
-	min := []byte{'9', '2', '2', '3', '3', '7', '2', '0', '3', '6', '8', '5', '4', '7', '7', '5', '8', '0', '8'}
-	if s == "" {
-		return 0, true
-	}
-	sign := 1
-	if s[0] == '-' {
-		s = s[1:]
-		sign = -1
-	}
-	if s[0] == '+' {
-		s = s[1:]
-	}
-	slice := []byte(s)
-	lngth := len(s)
-	if lngth > 19 {
-		return 0, true
-	}
-	if lngth == 19 && sign == 1 {
-		for i := 0; i < 19; i++ {
-			if slice[i] > max[i] {
-				return 0, true
-			}
-		}
-	}
-	if lngth == 19 && sign == -1 {
-		for i := 0; i < 19; i++ {
-			if slice[i] > min[i] {
-				return 0, true
-			}
-		}
-	}
-	result := 0
-	numPos := 1
-	currNum := 0
-	for i := lngth - 1; i >= 0; i-- {
-		currNum = (int(slice[i]) - 48)
-		if currNum >= 0 && currNum <= 9 {
-			result += (currNum * numPos)
-			numPos *= 10
-		} else {
-			return 0, true
-		}
-	}
-	return result * sign, false
-}
-
-func Plus(arg1, arg2 string) {
-	a, overflow := Atoi(arg1)
-	save := overflow
-	b, overflow := Atoi(arg2)
-	if !overflow && !save {
-		if a < 0 && b < 0 {
-			if 9223372036854775807-(a*(-1))-(b*(-1)) < -1 {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			} else {
-				res := a + b
-				PrintRes(res)
-			}
-		}
-		if a > 0 && b > 0 {
-			if 9223372036854775807-a-b < 0 {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			} else {
-				res := a + b
-				PrintRes(res)
-			}
-		} else {
-			res := a + b
-			PrintRes(res)
-		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
-	}
-}
-
-func Deduct(arg1, arg2 string) {
-	a, overflow := Atoi(arg1)
-	save := overflow
-	b, overflow := Atoi(arg2)
-	if !overflow && !save {
-		if a < 0 && b > 0 {
-			if 9223372036854775807-(a*(-1))-b < -1 {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			} else {
-				res := a - b
-				PrintRes(res)
-			}
-		}
-		if a > 0 && b < 0 {
-			if 9223372036854775807-a-(b*(-1)) < 0 {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			} else {
-				res := a - b
-				PrintRes(res)
-			}
-		} else {
-			res := a - b
-			PrintRes(res)
-		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
-	}
-}
-
-func Devide(arg1, arg2 string) {
-	a, overflow := Atoi(arg1)
-	save := overflow
-	b, overflow := Atoi(arg2)
-	err := "No division by 0"
-	if !overflow && !save {
-		if a == -9223372036854775808 && b == -1 {
-			z01.PrintRune('0')
-			z01.PrintRune('\n')
-			return
-		}
-		if b == 0 {
-			os.Stdout.WriteString(err)
-			z01.PrintRune('\n')
-		} else {
-			res := a / b
-			PrintRes(res)
-		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
-	}
-}
-
-func Multiply(arg1, arg2 string) {
-	a, overflow := Atoi(arg1)
-	save := overflow
-	b, overflow := Atoi(arg2)
-	if !overflow && !save {
-		if a == -9223372036854775808 && b == -1 {
-			z01.PrintRune('0')
-			z01.PrintRune('\n')
-			return
-		}
-		if a < 0 && b > 0 {
-			if (-9223372036854775808/a < b) || (-9223372036854775808/b > a) {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			}
-		}
-		if a > 0 && b < 0 {
-			if (-9223372036854775808/(b*(-1)) < (a * (-1))) || (-9223372036854775808/a > b) {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			}
-		}
-		if a > 0 && b > 0 {
-			if (9223372036854775807/a < b) || (9223372036854775807/b < a) {
-				z01.PrintRune('0')
-				z01.PrintRune('\n')
-				return
-			}
-		} else {
-			res := a * b
-			PrintRes(res)
-		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
-	}
-}
-
-func Mod(arg1, arg2 string) {
-	a, overflow := Atoi(arg1)
-	save := overflow
-	b, overflow := Atoi(arg2)
-	err := "No modulo by 0"
-	if !overflow && !save {
-		if b == 0 {
-			os.Stdout.WriteString(err)
-			z01.PrintRune('\n')
-		} else {
-			res := a % b
-			PrintRes(res)
-		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
-	}
-}
-
 func main() {
-	args := os.Args[1:]
-	argsNum := len(args)
-	if argsNum != 3 {
+	if len(os.Args) != 4 {
 		return
 	}
-	if !(IsNumeric(args[0]) && IsNumeric(args[2])) {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
+	x, err1 := Atoi(os.Args[1])
+	oper := os.Args[2]
+	y, err2 := Atoi(os.Args[3])
+	res := 0
+	if err1 == false || err2 == false {
 		return
 	}
-	if args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%" {
-		funcsArr := []func(string, string){Plus, Deduct, Devide, Multiply, Mod}
-		operators := []string{"+", "-", "/", "*", "%"}
-		for i, val := range operators {
-			if val == args[1] {
-				funcsArr[i](args[0], args[2])
-			}
+	switch oper {
+	case "+":
+		res = x + y
+		if x > 0 && res < 0 {
+			return
 		}
-	} else {
-		z01.PrintRune('0')
-		z01.PrintRune('\n')
+	case "-":
+		res = x - y
+		if x < 0 && res > 0 {
+			return
+		}
+	case "*":
+		res = x * y
+		if res/x != y {
+			return
+		}
+	case "/":
+		if y == 0 {
+			fmt.Println("No division by 0")
+			return
+		}
+		res = x / y
+	case "%":
+		if y == 0 {
+			fmt.Println("No modulo by 0")
+			return
+		}
+		res = x % y
+	default:
+		return
 	}
+	fmt.Println(res)
 }
 
-// package main
+// Atoi for convert from string to int with numeric
+func Atoi(s string) (int, bool) {
+	var res int
+	neg := false
+	if len(s) == 0 {
+		return 0, false
+	} else if s[0] == '-' {
+		s = s[1:]
+		neg = true
+	}
 
-// import (
-// 	"os"
+	for _, el := range s {
+		if el < '0' || el > '9' {
 
-// 	"github.com/01-edu/z01"
-// )
+			return 0, false
+		}
+		res = res*10 + (int(el) - 48)
+	}
+	if neg {
+		res *= -1
+	}
+	return res, true
+}
+
+// func IsNumeric(str string) bool {
+// 	if str == "" {
+// 		return false
+// 	}
+// 	if str[0] == '-' || str[0] == '+' {
+// 		str = str[1:]
+// 	}
+// 	for _, s := range str {
+// 		if s < 48 || s > 57 {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+// func PrintRes(res int) {
+// 	lngth := 1
+// 	printNum := res
+// 	if res >= -9223372036854775808 && res <= 9223372036854775807 {
+// 		if res > 0 {
+// 			for lngth < res/10 {
+// 				lngth *= 10
+// 			}
+// 			for lngth > 0 {
+// 				printNum = res
+// 				z01.PrintRune(rune((printNum/lngth)%10) + 48)
+// 				lngth /= 10
+// 			}
+// 		}
+// 		if res < 0 {
+// 			res *= -1
+// 			z01.PrintRune('-')
+// 			for lngth < res/10 {
+// 				lngth *= 10
+// 			}
+// 			for lngth > 0 {
+// 				printNum = res
+// 				z01.PrintRune(rune((printNum/lngth)%10) + 48)
+// 				lngth /= 10
+// 			}
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 	}
+// 	z01.PrintRune('\n')
+// }
+
+// func Atoi(s string) (int, bool) {
+// 	max := []byte{'9', '2', '2', '3', '3', '7', '2', '0', '3', '6', '8', '5', '4', '7', '7', '5', '8', '0', '7'}
+// 	min := []byte{'9', '2', '2', '3', '3', '7', '2', '0', '3', '6', '8', '5', '4', '7', '7', '5', '8', '0', '8'}
+// 	if s == "" {
+// 		return 0, true
+// 	}
+// 	sign := 1
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 		sign = -1
+// 	}
+// 	if s[0] == '+' {
+// 		s = s[1:]
+// 	}
+// 	slice := []byte(s)
+// 	lngth := len(s)
+// 	if lngth > 19 {
+// 		return 0, true
+// 	}
+// 	if lngth == 19 && sign == 1 {
+// 		for i := 0; i < 19; i++ {
+// 			if slice[i] > max[i] {
+// 				return 0, true
+// 			}
+// 		}
+// 	}
+// 	if lngth == 19 && sign == -1 {
+// 		for i := 0; i < 19; i++ {
+// 			if slice[i] > min[i] {
+// 				return 0, true
+// 			}
+// 		}
+// 	}
+// 	result := 0
+// 	numPos := 1
+// 	currNum := 0
+// 	for i := lngth - 1; i >= 0; i-- {
+// 		currNum = (int(slice[i]) - 48)
+// 		if currNum >= 0 && currNum <= 9 {
+// 			result += (currNum * numPos)
+// 			numPos *= 10
+// 		} else {
+// 			return 0, true
+// 		}
+// 	}
+// 	return result * sign, false
+// }
+
+// func Plus(arg1, arg2 string) {
+// 	a, overflow := Atoi(arg1)
+// 	save := overflow
+// 	b, overflow := Atoi(arg2)
+// 	if !overflow && !save {
+// 		if a < 0 && b < 0 {
+// 			if 9223372036854775807-(a*(-1))-(b*(-1)) < -1 {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			} else {
+// 				res := a + b
+// 				PrintRes(res)
+// 			}
+// 		}
+// 		if a > 0 && b > 0 {
+// 			if 9223372036854775807-a-b < 0 {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			} else {
+// 				res := a + b
+// 				PrintRes(res)
+// 			}
+// 		} else {
+// 			res := a + b
+// 			PrintRes(res)
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func Deduct(arg1, arg2 string) {
+// 	a, overflow := Atoi(arg1)
+// 	save := overflow
+// 	b, overflow := Atoi(arg2)
+// 	if !overflow && !save {
+// 		if a < 0 && b > 0 {
+// 			if 9223372036854775807-(a*(-1))-b < -1 {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			} else {
+// 				res := a - b
+// 				PrintRes(res)
+// 			}
+// 		}
+// 		if a > 0 && b < 0 {
+// 			if 9223372036854775807-a-(b*(-1)) < 0 {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			} else {
+// 				res := a - b
+// 				PrintRes(res)
+// 			}
+// 		} else {
+// 			res := a - b
+// 			PrintRes(res)
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func Devide(arg1, arg2 string) {
+// 	a, overflow := Atoi(arg1)
+// 	save := overflow
+// 	b, overflow := Atoi(arg2)
+// 	err := "No division by 0"
+// 	if !overflow && !save {
+// 		if a == -9223372036854775808 && b == -1 {
+// 			z01.PrintRune('0')
+// 			z01.PrintRune('\n')
+// 			return
+// 		}
+// 		if b == 0 {
+// 			os.Stdout.WriteString(err)
+// 			z01.PrintRune('\n')
+// 		} else {
+// 			res := a / b
+// 			PrintRes(res)
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func Multiply(arg1, arg2 string) {
+// 	a, overflow := Atoi(arg1)
+// 	save := overflow
+// 	b, overflow := Atoi(arg2)
+// 	if !overflow && !save {
+// 		if a == -9223372036854775808 && b == -1 {
+// 			z01.PrintRune('0')
+// 			z01.PrintRune('\n')
+// 			return
+// 		}
+// 		if a < 0 && b > 0 {
+// 			if (-9223372036854775808/a < b) || (-9223372036854775808/b > a) {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			}
+// 		}
+// 		if a > 0 && b < 0 {
+// 			if (-9223372036854775808/(b*(-1)) < (a * (-1))) || (-9223372036854775808/a > b) {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			}
+// 		}
+// 		if a > 0 && b > 0 {
+// 			if (9223372036854775807/a < b) || (9223372036854775807/b < a) {
+// 				z01.PrintRune('0')
+// 				z01.PrintRune('\n')
+// 				return
+// 			}
+// 		} else {
+// 			res := a * b
+// 			PrintRes(res)
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func Mod(arg1, arg2 string) {
+// 	a, overflow := Atoi(arg1)
+// 	save := overflow
+// 	b, overflow := Atoi(arg2)
+// 	err := "No modulo by 0"
+// 	if !overflow && !save {
+// 		if b == 0 {
+// 			os.Stdout.WriteString(err)
+// 			z01.PrintRune('\n')
+// 		} else {
+// 			res := a % b
+// 			PrintRes(res)
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
+
+// func main() {
+// 	args := os.Args[1:]
+// 	argsNum := len(args)
+// 	if argsNum != 3 {
+// 		return
+// 	}
+// 	if !(IsNumeric(args[0]) && IsNumeric(args[2])) {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 		return
+// 	}
+// 	if args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%" {
+// 		funcsArr := []func(string, string){Plus, Deduct, Devide, Multiply, Mod}
+// 		operators := []string{"+", "-", "/", "*", "%"}
+// 		for i, val := range operators {
+// 			if val == args[1] {
+// 				funcsArr[i](args[0], args[2])
+// 			}
+// 		}
+// 	} else {
+// 		z01.PrintRune('0')
+// 		z01.PrintRune('\n')
+// 	}
+// }
 
 // func main() {
 // 	lens := 0
@@ -450,53 +510,4 @@ func main() {
 // 	}
 
 // 	return result * sign
-// }
-
-// import (
-// 	"fmt"
-// 	"os"
-// 	"strconv"
-// )
-
-// func main() {
-// 	if len(os.Args) == 4 {
-// 		a, err := strconv.Atoi(os.Args[1])
-// 		if err != nil {
-// 			return
-// 		}
-// 		b, err := strconv.Atoi(os.Args[3])
-// 		if err != nil {
-// 			return
-// 		}
-// 		operator := os.Args[2]
-// 		switch operator {
-// 		case "+":
-// 			result := a + b
-// 			if (result > a) == (b > 0) {
-// 				fmt.Println(result)
-// 			}
-// 		case "-":
-// 			result := a - b
-// 			if (result < a) == (b > 0) {
-// 				fmt.Println(result)
-// 			}
-// 		case "*":
-// 			result := a * b
-// 			if a == 0 || (result/a == b) {
-// 				fmt.Println(result)
-// 			}
-// 		case "/":
-// 			if b == 0 {
-// 				fmt.Println("No division by 0")
-// 			} else {
-// 				fmt.Println(a / b)
-// 			}
-// 		case "%":
-// 			if b == 0 {
-// 				fmt.Println("No modulo by 0")
-// 			} else {
-// 				fmt.Println(a % b)
-// 			}
-// 		}
-// 	}
 // }

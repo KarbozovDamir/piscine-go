@@ -6,58 +6,25 @@ import (
 	"github.com/01-edu/z01"
 )
 
-//Rot13 : rot13
 func main() {
-	ars := os.Args[1:]
-	s := []rune(ars[0])
+
 	res := ""
-	for _, j := range s {
-		if j >= 'a' && j <= 'z' {
-			if j >= 'n' {
-				res += string(j - 13)
-			} else {
-				res += string(j + 13)
-			}
-		} else if j >= 'A' && j <= 'Z' {
-			if j >= 'N' {
-				res += string(j - 13)
-			} else {
-				res += string(j + 13)
-			}
+	if len(os.Args) != 2 {
+		return
+	}
+	for _, el := range os.Args[1] {
+
+		if el >= 'a' && el <= 'm' || el >= 'A' && el <= 'M' {
+			res += string(el + 13)
+
+		} else if el > 'm' && el <= 'z' || el > 'M' && el <= 'Z' {
+			res += string(el - 13)
 		} else {
-			res += string(j)
+			res += string(el)
 		}
 	}
-	for _, h := range res {
-		z01.PrintRune(h)
+	for _, el := range res {
+		z01.PrintRune(el)
 	}
-	z01.PrintRune('\n')
+	z01.PrintRune(10)
 }
-
-// import (
-// 	"os"
-// 	"strconv"
-
-// 	"github.com/01-edu/z01"
-// )
-
-// func Itoa(number int) (result string) {
-// 	for number > 0 {
-// 		result = string(number%10+48) + result
-// 		number /= 10
-// 	}
-// 	return
-// }
-
-// func main() {
-// 	if len(os.Args) == 2 {
-// 		var result string
-// 		number, _ := strconv.Atoi(os.Args[1])
-// 		for i := 1; i <= 9; i++ {
-// 			result += Itoa(i) + " x " + Itoa(number) + " = " + Itoa(number*i) + "\n"
-// 		}
-// 		for _, r := range result {
-// 			z01.PrintRune(r)
-// 		}
-// 	}
-// }

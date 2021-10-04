@@ -6,7 +6,12 @@ import (
 	"github.com/01-edu/z01"
 )
 
+//********************************first variant
 func main() {
+	if len(os.Args) != 2 {
+		z01.PrintRune(10)
+		return
+	}
 	if len(os.Args) == 2 {
 		for _, j := range os.Args[1] {
 			if j >= 'A' && j <= 'Z' {
