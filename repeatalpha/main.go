@@ -20,25 +20,48 @@ import (
 // 	if len(args) != 1 {
 // 		return
 // 	}
+
 func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+
 	for _, el := range os.Args[1] {
-		if el >= 'a' && el <= 'z' {
-			for i := 'a'; i <= el; i++ {
+		if el >= 'A' && el <= 'Z' {
+			for i := 'A'; i <= el; i++ {
 				z01.PrintRune(el)
 			}
-		} else if el >= 'A' && el <= 'Z' {
-			for i := 'A'; i <= el; i++ {
+		} else if el >= 'a' && el <= 'z' {
+			for i := 'a'; i <= el; i++ {
 				z01.PrintRune(el)
 			}
 		} else {
 			z01.PrintRune(el)
 		}
 	}
-	z01.PrintRune('\n')
+	z01.PrintRune(10)
 }
+
+//**************************
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	for _, el := range os.Args[1] {
+// 		if el >= 'a' && el <= 'z' {
+// 			for i := 'a'; i <= el; i++ {
+// 				z01.PrintRune(el)
+// 			}
+// 		} else if el >= 'A' && el <= 'Z' {
+// 			for i := 'A'; i <= el; i++ {
+// 				z01.PrintRune(el)
+// 			}
+// 		} else {
+// 			z01.PrintRune(el)
+// 		}
+// 	}
+// 	z01.PrintRune('\n')
+// }
 
 // func main() {
 // 	if len(os.Args) != 2 {

@@ -1,4 +1,4 @@
-package piscine
+package main
 
 import (
 	"os"
@@ -13,18 +13,27 @@ func main() {
 	}
 	if len(os.Args) == 2 {
 		n, _ := strconv.Atoi(os.Args[1])
-		flag := "true"
+
+		if n == 1 || n == 2 {
+			out("true")
+			return
+		}
+
 		for n > 1 {
-			if n%2 != 0 {
-				flag = "false"
+			if n%2 == 1 {
+				out("false")
+				return
 			}
 			n /= 2
 		}
-		for _, el := range flag {
-			z01.PrintRune(el)
-		}
-		z01.PrintRune(10)
+		out("true")
 	}
+}
+func out(s string) {
+	for _, el := range s {
+		z01.PrintRune(el)
+	}
+	z01.PrintRune(10)
 }
 
 // isPowerOf2

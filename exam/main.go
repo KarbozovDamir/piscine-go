@@ -1,41 +1,28 @@
 package main
 
-import (
-	"fmt"
-	"piscine"
-)
+import "os"
 
-func StrLen(str string) int {
-
-	return len([]rune(str))
+func main(){
+	if len(os.Args) 
 }
-func main() {
-	str := piscine.StrLen("Hello World!")
-	// nb := StrLen(str)
-	fmt.Println(str)
-}
-
 // func main() {
-// 	if
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	n, _ := strconv.Atoi(os.Args[1])
+// 	flag := "true"
+// 	for n > 1 {
+// 		if n%2 == 1 {
+// 			flag = "false"
+// 		}
+// 		n /= 2
+// 	}
+// 	for _, el := range flag {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
 
 // }
-
-/*
-   rostring
-   Instructions
-
-   Write a program that takes a string and displays this string after rotating it one word to the left.
-
-   Thus, the first word becomes the last, and others stay in the same order.
-
-   A word is a sequence of alphanumerical characters.
-
-   Words will be separated by only one space in the output.
-
-   If the number of arguments is different from 1, the program displays a newline.
-   Usagego run . "FOR PONY" | cat -e
-*/
-//
 
 //**********************SwapBits
 // import "fmt"
