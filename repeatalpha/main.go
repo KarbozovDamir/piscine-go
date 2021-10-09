@@ -25,21 +25,23 @@ func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+	if len(os.Args) == 2 {
+		for _, el := range os.Args[1] {
 
-	for _, el := range os.Args[1] {
-		if el >= 'A' && el <= 'Z' {
-			for i := 'A'; i <= el; i++ {
+			if el >= 'A' && el <= 'Z' {
+				for i := 'A'; i <= el; i++ {
+					z01.PrintRune(el)
+				}
+			} else if el >= 'a' && el <= 'z' {
+				for i := 'a'; i <= el; i++ {
+					z01.PrintRune(el)
+				}
+			} else {
 				z01.PrintRune(el)
 			}
-		} else if el >= 'a' && el <= 'z' {
-			for i := 'a'; i <= el; i++ {
-				z01.PrintRune(el)
-			}
-		} else {
-			z01.PrintRune(el)
 		}
+		z01.PrintRune(10)
 	}
-	z01.PrintRune(10)
 }
 
 //**************************

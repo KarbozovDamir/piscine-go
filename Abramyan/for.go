@@ -55,7 +55,7 @@ func for39() {
 		for j := 0; j < i; j++ {
 
 			fmt.Print(i)
-		}
+		} 
 		fmt.Println()
 	}
 }
@@ -83,7 +83,9 @@ func arr1() {
 	// fmt.Println()
 
 }
-
+func for00(){
+	
+} 
 // var n int
 // fmt.Scan(&n)
 // arr := []int{}

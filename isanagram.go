@@ -42,41 +42,41 @@ package piscine
 // }
 
 //
-// func IsAnagram(s1, s2 string) bool {
+func IsAnagram(s1, s2 string) bool {
 
-// 	k := map[rune]int{}
-// 	fmt.Println(k)
+	k := map[rune]int{}
+	// fmt.Println(k)
 
-// 	for _, v := range s1 {
-// 		if v != ' ' {
-// 			k[v]++
-// 		}
-// 	}
-// 	// fmt.Println(k)
-// 	for _, g := range s2 {
-// 		if g != ' ' {
-// 			// fmt.Println(g)
-// 			k[g]--
-// 		}
-// 	}
-// 	// fmt.Println(k)
-// 	for _, p := range k {
-// 		if p != 0 {
-// 			// fmt.Println(p)
-// 			return false
-// 		}
-
-// 	}
-// 	return true
-// }
-
-func IsAnagram(str1, str2 string) bool {
-	res := rune(0)
-	for _, r := range str1 + str2 {
-		if r == ' ' {
-			continue
+	for _, v := range s1 {
+		if v != ' ' {
+			k[v]++
 		}
-		res ^= rune(r)
 	}
-	return res == 0
+	// fmt.Println(k)
+	for _, g := range s2 {
+		if g != ' ' {
+			// fmt.Println(g)
+			k[g]--
+		}
+	}
+	// fmt.Println(k)
+	for _, p := range k {
+		if p != 0 {
+			// fmt.Println(p)
+			return false
+		}
+
+	}
+	return true
 }
+
+// func IsAnagram(str1, str2 string) bool {
+// 	res := rune(0)
+// 	for _, r := range str1 + str2 {
+// 		if r == ' ' {
+// 			continue
+// 		}
+// 		res ^= rune(r)
+// 	}
+// 	return res == 0
+// }

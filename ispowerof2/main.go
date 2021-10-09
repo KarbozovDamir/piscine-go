@@ -18,7 +18,6 @@ func main() {
 			out("true")
 			return
 		}
-
 		for n > 1 {
 			if n%2 == 1 {
 				out("false")

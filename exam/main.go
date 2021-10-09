@@ -1,27 +1,187 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
-func main(){
-	if len(os.Args) 
+func main() {
+	if len(os.Args) != 4 {
+		return
+	}
+	if len(os.Args) == 4 {
+
+		x, err1 := Atoi(os.Args[1])
+		oper := os.Args[2]
+		y, err2 := Atoi(os.Args[3])
+
+		if err1 == false || err2 == false {
+			return
+		}
+		res := 0
+		switch oper {
+		case "+":
+			res = x + y
+			if x > 0 && y > 0 && res < 0 { // 2 + 2 = -4 // res=10, n2=8, n1=?3
+				return
+			}
+
+		case "-":
+			res = x - y
+			if x < y && res > 0 { // 8 - 1 = 7
+				return
+			}
+		case "*":
+			res = x * y
+
+			if res/x != y {
+				return
+			}
+		case "/":
+			if y == 0 {
+				fmt.Println("No division by 0")
+				return
+			}
+			res = x / y
+		case "%":
+			if y == 0 {
+				fmt.Println("No modulo by 0")
+				return
+			}
+			res = x % y
+		default:
+			return
+		}
+		fmt.Println(res)
+	}
 }
+func Atoi(s string) (int, bool) {
+	var res int
+	neg := false
+	if len(s) == 0 {
+		return 0, false
+	} else if s[0] == '-' {
+		s = s[1:]
+		neg = true
+	}
+
+	for _, el := range s {
+		if el < '0' || el > '9' {
+			return 0, false
+		}
+		res = res*10 + (int(el) - 48)
+	}
+
+	if neg {
+		res *= -1
+	}
+	if !neg && res < 0 || neg && res > 0 {
+		return 0, false
+	}
+	return res, true
+}
+
 // func main() {
 // 	if len(os.Args) != 2 {
 // 		return
 // 	}
-// 	n, _ := strconv.Atoi(os.Args[1])
-// 	flag := "true"
-// 	for n > 1 {
-// 		if n%2 == 1 {
-// 			flag = "false"
+// 	if len(os.Args) == 2 {
+// 		n, err := strconv.Atoi(os.Args[1])
+// 		if err != nil {
+// 			return
 // 		}
-// 		n /= 2
+// 		if n == 1 || n == 2 {
+// 			out("true")
+// 			return
+// 		}
+// 		for n > 1 {
+// 			if n%2 == 1 {
+// 				out("false")
+// 				return
+// 			}
+// 			n /= 2
+// 		}
+// 		out("ture")
 // 	}
-// 	for _, el := range flag {
+// }
+// func out(s string) {
+// 	for _, el := range s {
 // 		z01.PrintRune(el)
 // 	}
 // 	z01.PrintRune(10)
+// }
 
+//switchcase
+// func main() {
+// 	args := os.Args[1:]
+// 	res := ""
+// 	for _, el := range args[0] {
+// 		res = string(el) + res
+// 	}
+// 	for _, el := range res {
+// 		z01.PrintRune(el)
+
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+//displaylastparam
+// func main() {
+// 	args := os.Args[1:]
+// 	for _, el := range args[1] {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+// 	for i := len(args) - 1; i > 0; i-- {
+
+// 		z01.PrintRune(rune(i))
+// 	}
+// 	z01.PrintRune(10)
+// }
+
+//displayfirstparamfunc main() {
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	if len(os.Args) == 2 {
+// 		n, err := strconv.Atoi(os.Args[1])
+// 		if err != nil {
+// 			return
+// 		}
+// 		if n == 1 || n == 2 {
+// 			out("true")
+// 			return
+// 		}
+// 		for n > 1 {
+// 			if n%2 == 1 {
+// 				out("false")
+// 				return
+// 			}
+// 			n /= 2
+// 		}
+// 		out("ture")
+// 	}
+// }
+// func out(s string) {
+// 	for _, el := range s {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+// }
+// 	for _, el := range args[0] {
+// 		z01.PrintRune(el)
+// 	}
+// }
+
+//hello
+// func main() {
+// 	s := "Hello World!"
+// 	for _, el := range s {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
 // }
 
 //**********************SwapBits
@@ -51,32 +211,6 @@ func main(){
 // 	*a = *b
 // 	*b = c
 // }
-
-//*******************************************************doop
-/*
-$ go run .
-$ go run . 1 + 1 | cat -e
-2$
-$ go run . hello + 1
-$ go run . 1 p 1
-$ go run . 1 / 0 | cat -e
-No division by 0$
-$ go run . 1 % 0 | cat -e
-No modulo by 0$
-$ go run . 9223372036854775807 + 1
-$ go run . -9223372036854775809 - 3
-$ go run . 9223372036854775807 "*" 3
-$ go run . 1 "*" 1
-1
-$ go run . 1 "*" -1
--1
-$
-*/
-
-// import (
-// 	"fmt"
-// 	"os"
-// )
 
 // func main() {
 // 	arg := os.Args[1:]

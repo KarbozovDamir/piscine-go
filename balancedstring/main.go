@@ -6,9 +6,12 @@ import (
 )
 
 func main() {
+	if len(os.Args) != 2 {
+		return
+	}
 	if len(os.Args) == 2 {
-		C := 0 // it is var is not rune
-		D := 0 // still var is not rune
+		C := 0
+		D := 0
 		counter := 0
 		for _, el := range os.Args[1] {
 			if el == 'C' {
@@ -23,6 +26,25 @@ func main() {
 		fmt.Println(counter)
 	}
 }
+
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		C := 0 // it is var is not rune
+// 		D := 0 // still var is not rune
+// 		counter := 0
+// 		for _, el := range os.Args[1] {
+// 			if el == 'C' {
+// 				C++
+// 			} else {
+// 				D++
+// 			}
+// 			if C == D {
+// 				counter++
+// 			}
+// 		}
+// 		fmt.Println(counter)
+// 	}
+// }
 
 // func main() {
 // 	args := os.Args[1:]

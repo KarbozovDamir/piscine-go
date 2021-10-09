@@ -7,24 +7,58 @@ import (
 	"github.com/01-edu/z01"
 )
 
+// func main() {
+// 	if len(os.Args) == 2 {
+// 		for _, r := range "Error" {
+// 			z01.PrintRune(r)
+// 		}
+// 		z01.PrintRune(10)
+// 	}
+// 	if len(os.Args) == 3 {
+// 		num1, _ := strconv.Atoi(os.Args[1])
+// 		num2, _ := strconv.Atoi(os.Args[2])
+// 		if num2 == 0 && num1 == 0 {
+// 			for _, r := range "Error" {
+// 				z01.PrintRune(r)
+// 			}
+// 			z01.PrintRune(10)
+// 		}
+// 		for i := 0; i < num2; i++ {
+// 			for j := 0; j < num1; j++ {
+// 				if i%2 == 0 {
+// 					if j%2 == 0 {
+// 						z01.PrintRune('#')
+// 					} else {
+// 						z01.PrintRune(' ')
+// 					}
+// 				} else {
+// 					if j%2 == 0 {
+// 						z01.PrintRune(' ')
+// 					} else {
+// 						z01.PrintRune('#')
+// 					}
+// 				}
+// 			}
+// 			z01.PrintRune('\n')
+// 		}
+// 	}
+// }
+
 func main() {
 	if len(os.Args) == 2 {
-		for _, r := range "Error" {
-			z01.PrintRune(r)
-		}
-		z01.PrintRune(10)
+		out("Error")
 	}
 	if len(os.Args) == 3 {
-		num1, _ := strconv.Atoi(os.Args[1])
-		num2, _ := strconv.Atoi(os.Args[2])
-		if num2 == 0 && num1 == 0 {
-			for _, r := range "Error" {
-				z01.PrintRune(r)
-			}
-			z01.PrintRune(10)
+		n1, err1 := strconv.Atoi(os.Args[1])
+		n2, err2 := strconv.Atoi(os.Args[2])
+		if err1 != nil || err2 != nil {
+			out("Error")
 		}
-		for i := 0; i < num2; i++ {
-			for j := 0; j < num1; j++ {
+		if n2 == 0 && n1 == 0 {
+			out("Error")
+		}
+		for i := 0; i < n2; i++ {
+			for j := 0; j < n1; j++ {
 				if i%2 == 0 {
 					if j%2 == 0 {
 						z01.PrintRune('#')
@@ -39,9 +73,15 @@ func main() {
 					}
 				}
 			}
-			z01.PrintRune('\n')
+			z01.PrintRune(10)
 		}
 	}
+}
+func out(s string) {
+	for _, el := range "Error" {
+		z01.PrintRune(el)
+	}
+	z01.PrintRune(10)
 }
 
 // func main() {
@@ -50,12 +90,16 @@ func main() {
 // 			z01.PrintRune(r)
 // 		}
 // 		z01.PrintRune(10)
-// 		return
 // 	}
 // 	if len(os.Args) == 3 {
 // 		n1, _ := strconv.Atoi(os.Args[1])
 // 		n2, _ := strconv.Atoi(os.Args[2])
-
+// 		if n1 == 0 && n2 == 0 {
+// 			for _, r := range "Error" {
+// 				z01.PrintRune(r)
+// 			}
+// 			z01.PrintRune(10)
+// 		}
 // 		for i := 1; i <= n1; i++ {
 // 			for j := 1; j <= n2; j++ {
 // 				if i%2 == 1 && j%2 == 1 {
@@ -72,10 +116,16 @@ func main() {
 // 		// for _, r := range "Error" {
 // 		// 	z01.PrintRune(r)
 // 		// }
-// 		// z01.PrintRune(10)
-// 		// return
-// 		z01.PrintRune('\n')
+// 		z01.PrintRune(10)
+
 // 	}
+// }
+
+// func out(s string) {
+// 	for _, r := range s {
+// 		z01.PrintRune(r)
+// 	}
+// 	z01.PrintRune(10)
 // }
 
 //******************************************var1
