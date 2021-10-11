@@ -9,53 +9,61 @@ func main() {
 	if len(os.Args) != 4 {
 		return
 	}
-	if len(os.Args) == 4 {
-		if os.Args[1] == "9223372036854775807" {
-			return
-		}
-		x, err1 := Atoi(os.Args[1])
-		oper := os.Args[2]
-		y, err2 := Atoi(os.Args[3])
 
-		if err1 == false || err2 == false {
-			return
-		}
+	x, err1 := Atoi(os.Args[1])
+	oper := os.Args[2]
+	y, err2 := Atoi(os.Args[3])
 
-		res := 0
-		switch oper {
-		case "+":
-			res = x + y
-			if x > 0 && y > 0 && res < 0 { // 2 + 2 = -4 // res=10, n2=8, n1=?3
-				return
-			}
-		case "-":
-			res = x - y
-			if x < y && res > 0 { // 8 - 1 = 7
-				return
-			}
-		case "*":
-			res = x * y
-			if res/x != y {
-				return
-			}
-		case "/":
-			if y == 0 {
-				fmt.Println("No division by 0")
-				return
-			}
-			res = x / y
-		case "%":
-			if y == 0 {
-				fmt.Println("No modulo by 0")
-				return
-			}
-			res = x % y
-		default:
-			return
-		}
-		fmt.Println(res)
+	if err1 == false || err2 == false {
+		return
 	}
+
+	res := 0
+	switch oper {
+	case "+":
+		res = x + y
+
+		if x < 0 && y < 0 && res > 0 { // -1 + -1 =  1
+			return
+		}
+		if x > 0 && y > 0 && res < 0 { // 2 + 2 = -4 // res=10, n2=8, n1=?3
+			return
+		}
+	case "-":
+		res = x - y
+		if x > 0 && y < 0 && res < 0 { // 1 - -1 = -2
+			return
+		}
+		if x < 0 && y > 0 && res > 0 { // -1 - 1 = 2
+			return
+		}
+		if x < y && res > 0 { // 8 - 1 = 7
+			return
+		}
+	case "*":
+		res = x * y
+		if res/x != y {
+			return
+		}
+	case "/":
+		if y == 0 {
+			fmt.Println("No division by 0")
+			return
+		}
+		res = x / y
+	case "%":
+		if y == 0 {
+			fmt.Println("No modulo by 0")
+			return
+		}
+		res = x % y
+	default:
+		return
+	}
+	fmt.Println(res)
 }
+
+// Atoi : atoi
 func Atoi(s string) (int, bool) {
 	var res int
 	neg := false
@@ -70,11 +78,11 @@ func Atoi(s string) (int, bool) {
 		if el < '0' || el > '9' {
 			return 0, false
 		}
-		res = res*10 + (int(el) - 48)
-	}
-
-	if neg {
-		res *= -1
+		if neg {
+			res = res*10 - (int(el) - 48)
+		} else {
+			res = res*10 + (int(el) - 48)
+		}
 	}
 	if !neg && res < 0 || neg && res > 0 {
 		return 0, false
