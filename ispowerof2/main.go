@@ -1,39 +1,59 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strconv"
-
-	"github.com/01-edu/z01"
 )
 
 func main() {
 	if len(os.Args) != 2 {
 		return
 	}
-	if len(os.Args) == 2 {
-		n, _ := strconv.Atoi(os.Args[1])
+	a, _ := strconv.Atoi(os.Args[1])
+	fmt.Println(ispowerof2(a))
 
-		if n == 1 || n == 2 {
-			out("true")
-			return
-		}
-		for n > 1 {
-			if n%2 == 1 {
-				out("false")
-				return
-			}
-			n /= 2
-		}
-		out("true")
-	}
 }
-func out(s string) {
-	for _, el := range s {
-		z01.PrintRune(el)
+func ispowerof2(num int) bool {
+	if num == 1 {
+		return true
 	}
-	z01.PrintRune(10)
+	if num == 0 {
+		return false
+	}
+	if num%2 == 1 {
+		return false
+	}
+	return (ispowerof2(num / 2))
 }
+
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	if len(os.Args) == 2 {
+// 		n, _ := strconv.Atoi(os.Args[1])
+
+// 		if n == 1 || n == 2 {
+// 			out("true")
+// 			return
+// 		}
+// 		for n > 1 {
+// 			if n%2 == 1 {
+// 				out("false")
+// 				return
+// 			}
+// 			n /= 2
+// 		}
+// 		out("true")
+// 	}
+// }
+// func out(s string) {
+// 	for _, el := range s {
+// 		z01.PrintRune(el)
+// 	}
+// 	z01.PrintRune(10)
+// }
 
 // isPowerOf2
 // func main() {
