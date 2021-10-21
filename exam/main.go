@@ -1,99 +1,228 @@
 package main
 
 import (
-	"fmt"
+	
 	"os"
+	"fmt"
 )
 
-func main() {
-	if len(os.Args) != 4 {
+func main(){
+	if len(os.Args[1:]) != 1 {
+		fmt.Println()
 		return
 	}
-	// if os.Args[1] == "hello" {
-	// 	return
-	// }
-	x, err1 := Atoi(os.Args[1])
-	oper := os.Args[2]
-	y, err2 := Atoi(os.Args[3])
+	arg := os.Args[1]
+	if arg == "" {
+		fmt.Println()
+		return
+	}
+	words := make([]string, 0)
+	temp := ""
 
-	if err1 || err2 {
-		return
+	for _, el := range arg{
+		if el != ' ' {
+			temp += string(el)
+		}else {
+			if temp != "" {
+			words = append(words, temp)
+			temp = ""
+			}
+		}
+	
 	}
-	res := 0
-	switch oper {
-	case "+":
-		res = x + y
-		if x < 0 && y < 0 && res > 0 {
-			return
+	if temp != "" {
+		words = append(words, temp)
+		temp = ""
+	} 
+	words = append(words[1:], words[0])
+	// fmt.Println(words)
+	for i, word := range words {
+		temp+=word
+		if i != len(words) - 1 {
+			temp += " "
 		}
-		if x > 0 && y > 0 && res < 0 {
-			return
-		}
-	case "-":
-		res = x - y
-		if x < y && res > 0 {
-			return
-		}
-		// if x > y && res < 0 {
-		// 	return
-		// }
-		if x > 0 && y < 0 && res < 0 {
-			return
-		}
-		// if x < 0 && y > 0 && res > 0 {
-		// 	return
-		// }
-	case "*":
-		res = x * y
-		// fmt.Println("2")
-		if res/x != y {
-			return
-		}
-	case "/":
-		if y == 0 {
-			fmt.Println("No division by 0")
-			return
-		}
-		res = x / y
-	case "%":
-		if y == 0 {
-			fmt.Println("No modulo by 0")
-			return
-		}
-		res = x % y
-	default:
-		return
 	}
-	fmt.Println(res)
+	fmt.Println(temp)
+	//["ali", "alibek", "damir"]
 }
-func Atoi(s string) (int, bool) {
-	var res int
-	neg := false // [-] minus
-	if len(s) == 0 {
-		return 0, false
-	}
-	if s[0] == '-' {
-		s = s[1:]
-		neg = true
-	}
-	for _, el := range s {
-		if el < '0' || el > '9' {
-			return 0, true
-		}
-		if neg {
-			res = res*10 - (int(el) - 48)
-		} else {
-			res = res*10 + (int(el) - 48)
-		}
-		// if !neg {
-		// 	res *= -1 // вернули минус
-		// }
-	}
-	if !neg && res < 0 || neg && res > 0 {
-		return 0, true
-	}
-	return res, false
-}
+// func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	x, err1 := strconv.Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := strconv.Atoi(os.Args[3])
+// 	if err1 || err2 {
+// 		return
+// 	}
+// 	res := 0
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x > 0 && y > 0 && res < 0 {
+// 			return
+// 		}
+// 		if x < 0 && y < 0 && res > 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < y && res > 0 {
+// 			return
+// 		}
+// 		if x > 0 && y < 0 && res < 0 {
+// 			return
+// 		}
+// 	case "*":
+// 		res = x * y
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No division by 0")
+// 			return
+// 		}
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 			return
+// 		}
+// 	default:
+// 		return
+// 	}
+// 	fmt.Println(res)
+
+// }
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	}
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
+// 	for _, el := range s {
+// 		if el < '0' || el > '0' {
+// 			return 0, true
+// 		}
+// 		if neg {
+// 			res = res*10 - (int(el) - 48)
+// 	}else {
+// 		res = res*10 + (int(el) - 48)
+// 		}	
+		
+
+// 	if !neg && res < 0 || neg && res < 0 {
+// 		return 0, true
+// 	}
+// 	return res, false
+// }
+
+/*
+Write a program that takes a string, and displays the first a character it encounters in it,
+followed by a newline ('\n'). If there are no a characters in the string, the program just writes a followed by a newline ('\n').
+If the number of arguments is not 1, the program displays an a followed by a newline ('\n').
+$ go run . "abc"
+a
+$ go run . "bcvbvA"
+a
+$ go run . "nbv"
+a
+$
+*/
+
+// func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	// if os.Args[1] == "hello" {
+// 	// 	return
+// 	// }
+// 	x, err1 := Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := Atoi(os.Args[3])
+
+// 	if err1 || err2 {
+// 		return
+// 	}
+// 	res := 0
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x < 0 && y < 0 && res > 0 {
+// 			return
+// 		}
+// 		if x > 0 && y > 0 && res < 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < y && res > 0 {
+// 			return
+// 		}
+// 		// if x > y && res < 0 {
+// 		// 	return
+// 		// }
+// 		if x > 0 && y < 0 && res < 0 {
+// 			return
+// 		}
+// 		// if x < 0 && y > 0 && res > 0 {
+// 		// 	return
+// 		// }
+// 	case "*":
+// 		res = x * y
+// 		// fmt.Println("2")
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No division by 0")
+// 			return
+// 		}
+// 		res = x / y
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 			return
+// 		}
+// 		res = x % y
+// 	default:
+// 		return
+// 	}
+// 	fmt.Println(res)
+// }
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false // [-] minus
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	}
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
+// 	for _, el := range s {
+// 		if el < '0' || el > '9' {
+// 			return 0, true
+// 		}
+// 		if neg {
+// 			res = res*10 - (int(el) - 48)
+// 		} else {
+// 			res = res*10 + (int(el) - 48)
+// 		}
+// 		// if !neg {
+// 		// 	res *= -1 // вернули минус
+// 		// }
+// 	}
+// 	if !neg && res < 0 || neg && res > 0 {
+// 		return 0, true
+// 	}
+// 	return res, false
+// }
 
 /*
 // array with slize
