@@ -2,14 +2,44 @@ package main
 
 import (
 	"fmt"
-	"os"
-
-	"github.com/01-edu/z01"
 )
 
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	a, _ := strconv.Atoi(os.Args[1])
+// 	fmt.Println(ispowerof2(a))
+// }
+// func ispowerof2(n int) bool {
+// 	if n == 1 {
+// 		return true
+// 	}
+// 	if n == 0 {
+// 		return false
+// 	}
+// 	if n%2 == 1 {
+// 		return false
+// 	}
+// 	return ispowerof2(n / 2)
+// }
 
 func main() {
-if len(os.Args)
+	temp := 1
+	fmt.Println(isPower(temp))
+}
+
+func isPower(n int) bool {
+	count := 0
+	for i := 0; i < 64; i++ {
+		if n = n >> 1; n&1 == 1 {
+			count++
+		}
+		if count > 1 {
+			return false
+		}
+	}
+	return true
 }
 
 //hidden
@@ -113,7 +143,6 @@ if len(os.Args)
 // 	return res, false
 // }
 
-
 // array with slize
 // func main() {
 // 	a := [3]int{1, 2, 3}
@@ -135,7 +164,6 @@ if len(os.Args)
 // 	b[0] = 0
 // 	fmt.Println(a) //1 2 3
 // }
-*/
 
 // func main() {
 // 	fmt.Println(ispower(1))
@@ -296,7 +324,6 @@ if len(os.Args)
 // 	}
 // }
 
-
 //**********************SwapBits
 // import "fmt"
 
@@ -324,7 +351,6 @@ if len(os.Args)
 // 	*a = *b
 // 	*b = c
 // }
-
 
 //*****************************************************>>>CountDown
 // func main() {

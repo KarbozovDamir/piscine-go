@@ -2,48 +2,53 @@ package main
 
 import (
 	"os"
-	"fmt"
+
+	"github.com/01-edu/z01"
 )
 
-func main(){
-	if len(os.Args[1:]) != 1 {
-		fmt.Println()
+func main() {
+	if len(os.Args) != 2 {
+		z01.PrintRune(10)
 		return
 	}
 	arg := os.Args[1]
 	if arg == "" {
-		fmt.Println()
+		z01.PrintRune(10)
 		return
 	}
 	words := make([]string, 0)
 	temp := ""
 
-	for _, el := range arg{
+	for _, el := range arg {
 		if el != ' ' {
 			temp += string(el)
-		}else {
+		} else {
 			if temp != "" {
-			words = append(words, temp)
-			temp = ""
+				words = append(words, temp)
+				temp = ""
 			}
 		}
-	
+
 	}
 	if temp != "" {
 		words = append(words, temp)
 		temp = ""
-	} 
+	}
 	words = append(words[1:], words[0])
-	// fmt.Println(words)
 	for i, word := range words {
-		temp+=word
-		if i != len(words) - 1 {
+		temp += word
+		if i != len(words)-1 {
 			temp += " "
 		}
 	}
-	fmt.Println(temp)
+	for _, z := range temp {
+		z01.PrintRune(z)
+	}
+	z01.PrintRune(10)
+	// fmt.Println(temp)
 	//["ali", "alibek", "damir"]
 }
+
 /*
 Write a program that takes a string and displays this string after rotating it one word to the left.
 
@@ -91,7 +96,6 @@ If the number of arguments is different from 1, the program displays a newline.
 // 	}
 // 	z01.PrintRune('\n')
 // }
-
 
 // func main() {
 // 	defer z01.PrintRune('\n')

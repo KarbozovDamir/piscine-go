@@ -28,6 +28,24 @@ func ispowerof2(num int) bool {
 }
 
 // func main() {
+// 	temp := 1
+// 	fmt.Println(isPower(temp))
+// }
+
+// func isPower(n int) bool {
+// 	count := 0
+// 	for i := 0; i < 64; i++ {
+// 		if n = n >> 1; n&1 == 1 {
+// 			count++
+// 		}
+// 		if count > 1 {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+// func main() {
 // 	if len(os.Args) != 2 {
 // 		return
 // 	}
