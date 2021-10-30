@@ -9,24 +9,21 @@ func main() {
 	if len(os.Args) != 4 {
 		return
 	}
-	// if os.Args[1] == "hello" {
-	// 	return
-	// }
-	x, err1 := Atoi(os.Args[1])
+	x, er1 := Atoi(os.Args[1])
 	oper := os.Args[2]
-	y, err2 := Atoi(os.Args[3])
+	y, er2 := Atoi(os.Args[3])
+	res := 0
 
-	if err1 || err2 {
+	if er1 || er2 {
 		return
 	}
-	res := 0
 	switch oper {
 	case "+":
 		res = x + y
-		if x < 0 && y < 0 && res > 0 {
+		if x > 0 && y > 0 && res < 0 {
 			return
 		}
-		if x > 0 && y > 0 && res < 0 {
+		if x < 0 && y < 0 && res > 0 {
 			return
 		}
 	case "-":
@@ -34,18 +31,11 @@ func main() {
 		if x < y && res > 0 {
 			return
 		}
-		// if x > y && res < 0 {
-		// 	return
-		// }
-		if x > 0 && y < 0 && res < 0 {
+		if x > 0 && y > 0 && res < 0 {
 			return
 		}
-		// if x < 0 && y > 0 && res > 0 {
-		// 	return
-		// }
 	case "*":
 		res = x * y
-		// fmt.Println("2")
 		if res/x != y {
 			return
 		}
@@ -66,9 +56,10 @@ func main() {
 	}
 	fmt.Println(res)
 }
+
 func Atoi(s string) (int, bool) {
 	var res int
-	neg := false // [-] minus
+	neg := false
 	if len(s) == 0 {
 		return 0, false
 	}
@@ -83,17 +74,190 @@ func Atoi(s string) (int, bool) {
 		if neg {
 			res = res*10 - (int(el) - 48)
 		} else {
-			res = res*10 + (int(el) - 48)
+			res = res*10 + int(el) - 48
 		}
-		// if !neg {
-		// 	res *= -1 // вернули минус
-		// }
 	}
 	if !neg && res < 0 || neg && res > 0 {
 		return 0, true
 	}
 	return res, false
 }
+
+// func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	// if os.Args[1] == "hello" {
+// 	// 	return
+// 	// }
+// 	x, err1 := Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := Atoi(os.Args[3])
+
+// 	if err1 || err2 {
+// 		return
+// 	}
+// 	res := 0
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x < 0 && y < 0 && res > 0 {
+// 			return
+// 		}
+// 		if x > 0 && y > 0 && res < 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < y && res > 0 {
+// 			return
+// 		}
+// 		// if x > y && res < 0 {
+// 		// 	return
+// 		// }
+// 		if x > 0 && y < 0 && res < 0 {
+// 			return
+// 		}
+// 		// if x < 0 && y > 0 && res > 0 {
+// 		// 	return
+// 		// }
+// 	case "*":
+// 		res = x * y
+// 		// fmt.Println("2")
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No division by 0")
+// 			func main() {
+// 	if len(os.Args) != 4 {
+// 		return
+// 	}
+// 	// if os.Args[1] == "hello" {
+// 	// 	return
+// 	// }
+// 	x, err1 := Atoi(os.Args[1])
+// 	oper := os.Args[2]
+// 	y, err2 := Atoi(os.Args[3])
+
+// 	if err1 || err2 {
+// 		return
+// 	}
+// 	res := 0
+// 	switch oper {
+// 	case "+":
+// 		res = x + y
+// 		if x < 0 && y < 0 && res > 0 {
+// 			return
+// 		}
+// 		if x > 0 && y > 0 && res < 0 {
+// 			return
+// 		}
+// 	case "-":
+// 		res = x - y
+// 		if x < y && res > 0 {
+// 			return
+// 		}
+// 		// if x > y && res < 0 {
+// 		// 	return
+// 		// }
+// 		if x > 0 && y < 0 && res < 0 {
+// 			return
+// 		}
+// 		// if x < 0 && y > 0 && res > 0 {
+// 		// 	return
+// 		// }
+// 	case "*":
+// 		res = x * y
+// 		// fmt.Println("2")
+// 		if res/x != y {
+// 			return
+// 		}
+// 	case "/":
+// 		if y == 0 {
+// 			fmt.Println("No division by 0")
+// 			return
+// 		}
+// 		res = x / y
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 			return
+// 		}
+// 		res = x % y
+// 	default:
+// 		return
+// 	}
+// 	fmt.Println(res)
+// }
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false // [-] minus
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	}
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
+// 	for _, el := range s {
+// 		if el < '0' || el > '9' {
+// 			return 0, true
+// 		}
+// 		if neg {
+// 			res = res*10 - (int(el) - 48)
+// 		} else {
+// 			res = res*10 + (int(el) - 48)
+// 		}
+// 		// if !neg {
+// 		// 	res *= -1 // вернули минус
+// 		// }
+// 	}
+// 	if !neg && res < 0 || neg && res > 0 {
+// 		return 0, true
+// 	}
+// 	return res, false
+// } = x / y
+// 	case "%":
+// 		if y == 0 {
+// 			fmt.Println("No modulo by 0")
+// 			return
+// 		}
+// 		res = x % y
+// 	default:
+// 		return
+// 	}
+// 	fmt.Println(res)
+// }
+// func Atoi(s string) (int, bool) {
+// 	var res int
+// 	neg := false // [-] minus
+// 	if len(s) == 0 {
+// 		return 0, false
+// 	}
+// 	if s[0] == '-' {
+// 		s = s[1:]
+// 		neg = true
+// 	}
+// 	for _, el := range s {
+// 		if el < '0' || el > '9' {
+// 			return 0, true
+// 		}
+// 		if neg {
+// 			res = res*10 - (int(el) - 48)
+// 		} else {
+// 			res = res*10 + (int(el) - 48)
+// 		}
+// 		// if !neg {
+// 		// 	res *= -1 // вернули минус
+// 		// }
+// 	}
+// 	if !neg && res < 0 || neg && res > 0 {
+// 		return 0, true
+// 	}
+// 	return res, false
+// }
 
 // func main() {
 // 	if len(os.Args) != 4 {

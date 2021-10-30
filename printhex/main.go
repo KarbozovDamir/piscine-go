@@ -5,6 +5,27 @@ import (
 	"strconv"
 )
 
+// func main(){
+// 	if len(os.Args) == 2 {
+// 		base := "0123456789abcdef"
+// 		res := ""
+// 		n, er := strconv.Atoi(os.Args[1])
+// 		if er != nil {
+// 			os.Stdout.WriteString("ERROR")
+// 			return
+// 		}
+// 		for n != 0 {
+// 			res = string(base[n%16])+res
+// 			n /= 16
+// 		}
+// 		if res == ""{
+// 			os.Stdout.WriteString("ERROR\n")
+// 			return
+// 		}
+// 		os.Stdout.WriteString(res + "\n")
+// 	}
+// 	}
+
 func main() {
 	if len(os.Args) == 2 {
 		base := "0123456789abcdef"

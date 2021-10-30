@@ -20,9 +20,7 @@ func main() {
 		}
 		if args[i] == 'D' {
 			x--
-
 		}
-
 	}
 	if x == 0 && y == 0 {
 		os.Stdout.WriteString("true\n")
